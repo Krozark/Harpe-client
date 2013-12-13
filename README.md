@@ -1,4 +1,4 @@
 Harpe
 =====
 
-Soft to maque MS/MS data analysis
+Soft to make MS/MS data analysis
