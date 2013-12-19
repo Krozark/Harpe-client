@@ -19,6 +19,16 @@ void clientWaitForWork(ntw::SocketSerialized& sock)
 
 }
 
+enum ERRORS {
+    OK = 0,
+    INPUT_NOT_VALID = 1,
+    EMPTY_INPUT = 2,
+    PK_ERROR = 3,
+    EMPTY_DATA_SEND = 4,
+    TIMEOUT = 5,
+    STOP = 100
+};
+
 int main(int argc,char* argv[])
 {
     if(argc < SERVER_HOST)
@@ -38,7 +48,32 @@ int main(int argc,char* argv[])
     ntw::cli::Client client;
     client.connect(argv[SERVER_HOST],ntw::Config::port_server);
 
-    client.call(clientWaitForWork);
+    bool run=true;
+
+    while (run)
+    {
+        client.call(clientWaitForWork);
+        switch(client.request_sock.getStatus())
+        {
+            case ERRORS::OK :
+            {
+                ///\todo start analyse
+                /// ask new task
+            }break;
+            case ERRORS::TIMEOUT :
+            {
+                /// ask new task
+            }break;
+            case ERRORS::STOP :
+            {
+                run = false;
+            }break;
+            default :
+            {
+                /// server error???
+            }break;
+        }
+    }
 
     return 0;
 }
