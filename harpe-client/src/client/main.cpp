@@ -20,10 +20,8 @@ int main(int argc,char* argv[])
     else
         ntw::Config::port_server = 3987;
 
-    ntw::Config::default_timeout = 5.f;
-    ntw::Config::broadcast = false;
 
-    if(not ini_context("./sort.so"))
+    if(not ini_context("./harpe-sort.so"))
         return 0;
 
     ntw::cli::Client client;
