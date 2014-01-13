@@ -30,28 +30,6 @@ bool ini_context(char* sort_lib_path)
     ntw::Config::default_timeout = 5.f;
     ntw::Config::broadcast = false;
 
-    harpe::Context::aa_tab.add(0,"A",71.037110);
-    harpe::Context::aa_tab.add(1,"C",103.009185);
-    harpe::Context::aa_tab.add(2,"D",115.026943);
-    harpe::Context::aa_tab.add(3,"E",129.042593);
-    harpe::Context::aa_tab.add(4,"F",147.068414);
-    harpe::Context::aa_tab.add(5,"G",57.021464);
-    harpe::Context::aa_tab.add(6,"H",137.058912);
-    harpe::Context::aa_tab.add(7,"I-L",113.084064);
-    harpe::Context::aa_tab.add(8,"K",128.094963);
-    harpe::Context::aa_tab.add(9,"M",131.040485);
-    harpe::Context::aa_tab.add(10,"N",114.042927);
-    harpe::Context::aa_tab.add(11,"P",97.052764);
-    harpe::Context::aa_tab.add(12,"Q",128.058578);
-    harpe::Context::aa_tab.add(13,"R",156.101111);
-    harpe::Context::aa_tab.add(14,"S",87.032028);
-    harpe::Context::aa_tab.add(15,"T",101.047679);
-    harpe::Context::aa_tab.add(16,"V",99.068414);
-    harpe::Context::aa_tab.add(17,"W",186.079313);
-    harpe::Context::aa_tab.add(18,"Y",163.063320);
-
-
-    harpe::Context::aa_tab.sort();
 
 
     return true;
@@ -105,6 +83,31 @@ int process(ntw::cli::Client& client)
     client.request_sock>>pep;
 
     std::cout<<"[RECV] "<<pep<<std::endl;
+
+    for(AA& aa : pep.analyse.AAs)
+        harpe::Context::aa_tab.add(aa.pk,aa.slug,aa.mass);
+    /*harpe::Context::aa_tab.add(0,"A",71.037110);
+    harpe::Context::aa_tab.add(1,"C",103.009185);
+    harpe::Context::aa_tab.add(2,"D",115.026943);
+    harpe::Context::aa_tab.add(3,"E",129.042593);
+    harpe::Context::aa_tab.add(4,"F",147.068414);
+    harpe::Context::aa_tab.add(5,"G",57.021464);
+    harpe::Context::aa_tab.add(6,"H",137.058912);
+    harpe::Context::aa_tab.add(7,"I-L",113.084064);
+    harpe::Context::aa_tab.add(8,"K",128.094963);
+    harpe::Context::aa_tab.add(9,"M",131.040485);
+    harpe::Context::aa_tab.add(10,"N",114.042927);
+    harpe::Context::aa_tab.add(11,"P",97.052764);
+    harpe::Context::aa_tab.add(12,"Q",128.058578);
+    harpe::Context::aa_tab.add(13,"R",156.101111);
+    harpe::Context::aa_tab.add(14,"S",87.032028);
+    harpe::Context::aa_tab.add(15,"T",101.047679);
+    harpe::Context::aa_tab.add(16,"V",99.068414);
+    harpe::Context::aa_tab.add(17,"W",186.079313);
+    harpe::Context::aa_tab.add(18,"Y",163.063320);*/
+
+    harpe::Context::aa_tab.sort();
+
 
     std::stringstream stream(pep.mgf_part);
 
