@@ -80,6 +80,7 @@ void run(ntw::cli::Client& client)
 int process(ntw::cli::Client& client)
 {
     AnalysePeptide pep;
+    std::cout<<"[RECV] "<<client.request_sock<<std::endl;
     client.request_sock>>pep;
 
     std::cout<<"[RECV] "<<pep<<std::endl;
