@@ -16,9 +16,10 @@ ntw::Serializer& operator>>(ntw::Serializer& stream,AA& self)
 
 std::ostream& operator<<(std::ostream& stream, AA& self)
 {
-    stream<<"pk:"<<self.pk
+    stream<<"{[AA]pk:"<<self.pk
         <<", slug "<<self.slug
-        <<", mass: "<<self.mass;
+        <<", mass: "<<self.mass
+        <<"}";
     return stream;
 };
 
@@ -42,10 +43,11 @@ ntw::Serializer& operator>>(ntw::Serializer& stream,AnalyseMgf& self)
 
 std::ostream& operator<<(std::ostream& stream, AnalyseMgf& self)
 {
-    stream<<"pk:"<<self.pk
+    stream<<"{[AnalyseMgf]pk:"<<self.pk
         <<", size: "<<self.AAs.size();
     for(AA& aa : self.AAs)
         stream<<", AA: "<<aa;
+    stream<<"}";
     return stream;
 };
 
@@ -62,8 +64,9 @@ ntw::Serializer& operator>>(ntw::Serializer& stream, AnalysePeptide& self)
 
 std::ostream& operator<<(std::ostream& stream, AnalysePeptide& self)
 {
-    stream<<"pk:"<<self.pk
+    stream<<"{[AnalysePeptide]pk:"<<self.pk
         <<", mgf: "<<self.mgf_part
-        <<", analyse: "<<self.analyse;
+        <<", analyse: "<<self.analyse
+        <<"}";
     return stream;
 };

@@ -11,6 +11,7 @@ namespace ntw
 }
 
 #define clientWaitForWork 3
+#define sendPeptideResults 4
 
 bool ini_context(char* sort_lib_path);
 void clean_context();

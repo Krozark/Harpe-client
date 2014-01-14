@@ -53,89 +53,52 @@ void run(ntw::cli::Client& client)
             case ERRORS::STOP :
             {
                 std::cout<<"[Recv] Stop"<<std::endl;
+                client.request_sock.clear();
                 run = false;
             }break;
             case ERRORS::OK :
             {
                 std::cout<<"[Recv] Start procecing datas "<<client.request_sock.size()<<std::endl;
                 process(client);
-                ///\todo start analyse
                 /// ask new task
             }break;
             case ERRORS::TIMEOUT :
             {
                 std::cout<<"[Recv] Timeout"<<std::endl;
+                client.request_sock.clear();
                 /// ask new task
             }break;
             default :
             {
                 std::cout<<"[Recv] Server error code:"<<client.request_sock.getStatus()<<std::endl;
+                client.request_sock.clear();
                 /// server error???
             }break;
         }
-        client.request_sock.clear();
     }
 }
 
 int process(ntw::cli::Client& client)
 {
     AnalysePeptide pep;
+    //extract data
     client.request_sock>>pep;
-
+    
+    // add AAs
     for(AA& aa : pep.analyse.AAs)
         harpe::Context::aa_tab.add(aa.pk,aa.slug,aa.mass);
-    /*harpe::Context::aa_tab.add(0,"A",71.037110);
-    harpe::Context::aa_tab.add(1,"C",103.009185);
-    harpe::Context::aa_tab.add(2,"D",115.026943);
-    harpe::Context::aa_tab.add(3,"E",129.042593);
-    harpe::Context::aa_tab.add(4,"F",147.068414);
-    harpe::Context::aa_tab.add(5,"G",57.021464);
-    harpe::Context::aa_tab.add(6,"H",137.058912);
-    harpe::Context::aa_tab.add(7,"I-L",113.084064);
-    harpe::Context::aa_tab.add(8,"K",128.094963);
-    harpe::Context::aa_tab.add(9,"M",131.040485);
-    harpe::Context::aa_tab.add(10,"N",114.042927);
-    harpe::Context::aa_tab.add(11,"P",97.052764);
-    harpe::Context::aa_tab.add(12,"Q",128.058578);
-    harpe::Context::aa_tab.add(13,"R",156.101111);
-    harpe::Context::aa_tab.add(14,"S",87.032028);
-    harpe::Context::aa_tab.add(15,"T",101.047679);
-    harpe::Context::aa_tab.add(16,"V",99.068414);
-    harpe::Context::aa_tab.add(17,"W",186.079313);
-    harpe::Context::aa_tab.add(18,"Y",163.063320);*/
 
+    if(harpe::Context::aa_tab.size()<=0)
+    {
+        //\todo ERROR, invalid input( no AAs)
+        return -1;
+    }
     harpe::Context::aa_tab.sort();
 
 
     std::stringstream stream(pep.mgf_part);
 
-    /*mgf::Driver driver(stream);
-    mgf::Analyse analyse = driver.parse();
-
-    //is a valid MGF format
-    if (not driver.isValid())
-    {
-        LOG(sock,"analyse","INPUT_NOT_VALID");
-        return -1;
-    }
-
-    /// as peptides
-    const unsigned int size = analyse.size();
-    LOG(sock,"analyse",size<<" peptides to analyse");
-    if(size<=0)
-    {
-        LOG(sock,"analyse","EMPTY_INPUT");
-        return -2;
-    }
-
-    ///\todo save in bdd
-    const std::list<mgf::Spectrum*>& spectrums = analyse.getSpectrums();
-   
-    for(mgf::Spectrum* spectrum : spectrums)
-    {*/
-    
-
-    int r=0; 
+    int r=0;
 
     mgf::Driver driver(stream);
     mgf::Spectrum* spectrum = nullptr;
@@ -143,6 +106,30 @@ int process(ntw::cli::Client& client)
     {
         spectrum->__print__(std::cout);
         std::vector<harpe::Sequence> res = harpe::Analyser::analyse(*spectrum,-1);
+        
+        //clear the data
+        client.request_sock.clear();
+        //set the function id
+        client.request_sock<<sendPeptideResults
+            //the peptide pk
+            <<pep.pk;
+
+        //add the sequences
+        unsigned int size = res.size();
+        if(size > 100)
+            size = 100;
+        client.request_sock<<size;
+        for(unsigned int i=0;i<size;++i)
+            client.request_sock<<res[i];
+
+        ///send datas
+        client.request_sock.send();
+        //verify return
+        if (client.request_sock.receive() > 0)
+        {
+            std::cerr<<"Recive Status: "<<client.request_sock.getStatus()<<std::endl;
+        }
+        
         harpe::Analyser::free();
         delete spectrum;
         ++r;
