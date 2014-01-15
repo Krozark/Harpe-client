@@ -1,6 +1,8 @@
 #ifndef FUNCTIONS_HPP
 #define FUNCTIONS_HPP
 
+#include <vector>
+
 namespace ntw
 {
     class SocketSerialized;
@@ -8,6 +10,11 @@ namespace ntw
     {
         class Client;
     }
+}
+
+namespace harpe
+{
+    class Sequence;
 }
 
 #define clientWaitForWork 3
@@ -19,6 +26,9 @@ void clean_context();
 void run(ntw::cli::Client& client);
 
 int process(ntw::cli::Client& client);
+
+
+int sendResults(ntw::SocketSerialized& sock,int pep_pk,std::vector<harpe::Sequence>& results);
 
 
 #endif

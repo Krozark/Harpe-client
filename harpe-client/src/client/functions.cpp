@@ -47,7 +47,6 @@ void run(ntw::cli::Client& client)
     while (run)
     {
         client.call<void>(clientWaitForWork);
-        //std::cout<<client.request_sock<<std::endl;
         switch(client.request_sock.getStatus())
         {
             case ERRORS::STOP :
@@ -59,7 +58,9 @@ void run(ntw::cli::Client& client)
             case ERRORS::OK :
             {
                 std::cout<<"[Recv] Start procecing datas "<<client.request_sock.size()<<std::endl;
-                process(client);
+                process(client);                           
+                run = false;
+                //TODO remove run=false;
                 /// ask new task
             }break;
             case ERRORS::TIMEOUT :
@@ -105,35 +106,51 @@ int process(ntw::cli::Client& client)
     while((spectrum = driver.next()) != nullptr)
     {
         spectrum->__print__(std::cout);
-        std::vector<harpe::Sequence> res = harpe::Analyser::analyse(*spectrum,-1);
-        
-        //clear the data
+        std::vector<harpe::Sequence> res;// = harpe::Analyser::analyse(*spectrum,-1);
+       
+        //sendResults(client.request_sock,pep.pk,res); 
+
         client.request_sock.clear();
-        //set the function id
-        client.request_sock<<sendPeptideResults
-            //the peptide pk
-            <<pep.pk;
-
-        //add the sequences
-        unsigned int size = res.size();
-        if(size > 100)
-            size = 100;
-        client.request_sock<<size;
-        for(unsigned int i=0;i<size;++i)
-            client.request_sock<<res[i];
-
-        ///send datas
-        client.request_sock.send();
-        //verify return
-        if (client.request_sock.receive() > 0)
-        {
-            std::cerr<<"Recive Status: "<<client.request_sock.getStatus()<<std::endl;
-        }
+        client.request_sock.setStatus(ntw::FuncWrapper::Status::ok);
+        std::cout<<client.request_sock<<std::endl;
+        client.call<void>(sendPeptideResults,pep.pk);
+        std::cout<<"Recive Status: "<<client.request_sock.getStatus()<<std::endl;
         
         harpe::Analyser::free();
         delete spectrum;
         ++r;
+        //TODO
+        break;
     }
     
     return r;
 }
+
+int sendResults(ntw::SocketSerialized& sock,int pep_pk,std::vector<harpe::Sequence>& results)
+{
+    //clear the data
+    sock.clear();
+    sock.setStatus(ntw::FuncWrapper::Status::ok);
+    //set the function id
+    sock<<(int)sendPeptideResults
+        //the peptide pk
+        <<pep_pk;
+
+    //add the sequences
+    unsigned int size = results.size();
+    if(size > 100)
+        size = 100;
+    sock<<size;
+    //for(unsigned int i=0;i<size;++i)
+    //    sock<<res[i];
+
+    ///send datas
+    std::cout<<"send datas"<<sock<<std::endl;
+    sock.send();
+    //verify return
+    if (sock.receive() > 0)
+    {
+        std::cerr<<"Recive Status: "<<sock.getStatus()<<std::endl;
+    }
+}
+
