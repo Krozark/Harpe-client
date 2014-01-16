@@ -105,16 +105,15 @@ int process(ntw::cli::Client& client)
     mgf::Spectrum* spectrum = nullptr;
     while((spectrum = driver.next()) != nullptr)
     {
-        spectrum->__print__(std::cout);
-        std::vector<harpe::Sequence> res;// = harpe::Analyser::analyse(*spectrum,-1);
+        //spectrum->__print__(std::cout);
+        std::vector<harpe::Sequence> res = harpe::Analyser::analyse(*spectrum,-1);
        
-        //sendResults(client.request_sock,pep.pk,res); 
+        sendResults(client.request_sock,pep.pk,res); 
 
-        client.request_sock.clear();
-        client.request_sock.setStatus(ntw::FuncWrapper::Status::ok);
-        std::cout<<client.request_sock<<std::endl;
+        /*client.request_sock.clear();
+        std::this_thread::sleep_for(std::chrono::milliseconds(3000));
         client.call<void>(sendPeptideResults,pep.pk);
-        std::cout<<"Recive Status: "<<client.request_sock.getStatus()<<std::endl;
+        std::cout<<"Recive Status: "<<client.request_sock.getStatus()<<std::endl;*/
         
         harpe::Analyser::free();
         delete spectrum;
@@ -138,14 +137,13 @@ int sendResults(ntw::SocketSerialized& sock,int pep_pk,std::vector<harpe::Sequen
 
     //add the sequences
     unsigned int size = results.size();
+    //TODO get the Max_results from the server
     if(size > 100)
         size = 100;
     sock<<size;
-    //for(unsigned int i=0;i<size;++i)
-    //    sock<<res[i];
+    for(unsigned int i=0;i<size;++i)
+        sock<<results[i];
 
-    ///send datas
-    std::cout<<"send datas"<<sock<<std::endl;
     sock.send();
     //verify return
     if (sock.receive() > 0)
