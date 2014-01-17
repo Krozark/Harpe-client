@@ -86,6 +86,7 @@ int process(ntw::cli::Client& client)
     // add AAs
     for(AA& aa : pep.analyse.AAs)
         harpe::Context::aa_tab.add(aa.pk,aa.slug,aa.mass);
+    std::cout<<"plop"<<std::endl;
 
     if(harpe::Context::aa_tab.size()<=0)
     {
