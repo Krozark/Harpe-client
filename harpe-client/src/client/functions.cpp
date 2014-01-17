@@ -59,8 +59,6 @@ void run(ntw::cli::Client& client)
             {
                 std::cout<<"[Recv] Start procecing datas "<<client.request_sock.size()<<std::endl;
                 process(client);                           
-                run = false;
-                //TODO remove run=false;
                 /// ask new task
             }break;
             case ERRORS::TIMEOUT :
@@ -110,15 +108,9 @@ int process(ntw::cli::Client& client)
        
         sendResults(client.request_sock,pep.pk,res); 
 
-        /*client.request_sock.clear();
-        std::this_thread::sleep_for(std::chrono::milliseconds(3000));
-        client.call<void>(sendPeptideResults,pep.pk);
-        std::cout<<"Recive Status: "<<client.request_sock.getStatus()<<std::endl;*/
-        
         harpe::Analyser::free();
         delete spectrum;
         ++r;
-        //TODO
         break;
     }
     
