@@ -113,6 +113,7 @@ int process(ntw::cli::Client& client)
         ++r;
         break;
     }
+    harpe::Context::aa_tab.clear();
     
     return r;
 }
