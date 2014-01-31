@@ -82,10 +82,15 @@ int process(ntw::cli::Client& client)
     AnalysePeptide pep;
     //extract data
     client.request_sock>>pep;
-    
+
     // add AAs
     for(AA& aa : pep.analyse.AAs)
         harpe::Context::aa_tab.add(aa.pk,aa.slug,aa.mass);
+
+    for(AAModification& mod : pep.modifications)
+    {
+        //TODO
+    }
 
     if(harpe::Context::aa_tab.size()<=0)
     {

@@ -26,6 +26,37 @@ class AA
         friend std::ostream& operator<<(std::ostream& stream,AA& self);
 };
 
+
+/*************************
+ ******* AA modified *****
+ ************************/
+
+class AAModificationPosition
+{
+    /*CHOICES = ((1,"partout"),(2,"N-term"),(3,"C-term")*/
+
+    public:
+        int pk;
+        AA aa;
+        int           position;
+
+        friend ntw::Serializer& operator>>(ntw::Serializer& stream,AAModificationPosition& self);
+        friend std::ostream& operator<<(std::ostream& stream,AAModificationPosition& self);
+
+};
+
+class AAModification
+{
+    public:
+        int     pk;
+        float   delta;
+        std::list<AAModificationPosition> aas;
+
+        friend ntw::Serializer& operator>>(ntw::Serializer& stream,AAModification& self);
+        friend std::ostream& operator<<(std::ostream& stream,AAModification& self);
+};
+
+
 /*****************************
  ****** AnalyseMgf ***********
  ****************************/
@@ -35,6 +66,7 @@ class AnalyseMgf
     public:
         int pk;
         std::list<AA> AAs;
+        std::list<AAModification> modifications;
         
         friend ntw::Serializer& operator>>(ntw::Serializer& stream,AnalyseMgf& self);
         friend std::ostream& operator<<(std::ostream& stream,AnalyseMgf& self);
