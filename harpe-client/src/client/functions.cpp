@@ -85,16 +85,28 @@ int process(ntw::cli::Client& client)
 
     // add AAs
     for(AA& aa : pep.analyse.AAs)
-        harpe::Context::aa_tab.add(aa.pk,aa.slug,aa.mass);
-
-    for(AAModification& mod : pep.modifications)
     {
-        //TODO
+        harpe::Context::aa_tab.add(aa.pk,aa.slug,aa.mass);
+    }
+
+    //PTMs
+    for(AAModification& mod : pep.analyse.modifications)
+    {
+        for(AAModificationPosition& mod_pos: mod.aas)
+        {
+            harpe::Context::aa_tab.add(mod_pos.aa.pk,
+                                       mod_pos.aa.slug,
+                                       mod_pos.aa.mass,
+                                       mod.pk,
+                                       mod.delta,
+                                       mod_pos.position);
+        }
     }
 
     if(harpe::Context::aa_tab.size()<=0)
     {
         //\todo ERROR, invalid input( no AAs)
+        std::cerr<<"ERROR on input (no AAs)"<<std::endl;
         return -1;
     }
     harpe::Context::aa_tab.sort();
