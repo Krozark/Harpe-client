@@ -121,9 +121,12 @@ int process(ntw::cli::Client& client)
     while((spectrum = driver.next()) != nullptr)
     {
         //spectrum->__print__(std::cout);
-        std::vector<harpe::Sequence> res = harpe::Analyser::analyse(*spectrum,-1);
+        int status;
+        std::vector<harpe::Sequence> res = harpe::Analyser::analyse(*spectrum,status,-1);
+
+        std::cout<<"status: "<<status<<std::endl;
        
-        sendResults(client.request_sock,pep.pk,res); 
+        sendResults(client.request_sock,pep.pk,res,status); 
 
         harpe::Analyser::free();
         delete spectrum;
@@ -135,15 +138,15 @@ int process(ntw::cli::Client& client)
     return r;
 }
 
-int sendResults(ntw::SocketSerialized& sock,int pep_pk,std::vector<harpe::Sequence>& results)
+int sendResults(ntw::SocketSerialized& sock,int pep_pk,std::vector<harpe::Sequence>& results,int status)
 {
     //clear the data
     sock.clear();
     sock.setStatus(ntw::FuncWrapper::Status::ok);
     //set the function id
     sock<<(int)sendPeptideResults
-        //the peptide pk
-        <<pep_pk;
+        <<pep_pk ///<the peptide pk
+        <<status; //<the calculation status
 
     //add the sequences
     unsigned int size = results.size();

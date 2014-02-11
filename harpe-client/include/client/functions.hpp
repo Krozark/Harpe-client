@@ -28,7 +28,7 @@ void run(ntw::cli::Client& client);
 int process(ntw::cli::Client& client);
 
 
-int sendResults(ntw::SocketSerialized& sock,int pep_pk,std::vector<harpe::Sequence>& results);
+int sendResults(ntw::SocketSerialized& sock,int pep_pk,std::vector<harpe::Sequence>& results,int status);
 
 
 #endif
