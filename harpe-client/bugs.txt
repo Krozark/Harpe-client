@@ -1,0 +1,147 @@
+-show-reachable=yes harpe-client 130.79.253.239
+==23055== Memcheck, a memory error detector
+==23055== Copyright (C) 2002-2011, and GNU GPL'd, by Julian Seward et al.
+==23055== Using Valgrind-3.7.0 and LibVEX; rerun with -h for copyright info
+==23055== Command: harpe-client 130.79.253.239
+==23055== 
+<id:3>Connected to 130.79.253.239:3987
+Verify connexion
+verifyIsConnected <0:hello!>
+Ready
+[Send] Recive Status: 0
+[Recv] Start procecing datas 4684
+^[[B/!\ warnning file Analyser.cpp line146 : out of memory
+left_part.size(): 0 right_part.size():427650
+/!\ warnning file Analyser.cpp line146 : out of memory
+left_part.size(): 0 right_part.size():5
+/!\ warnning file Analyser.cpp line146 : out of memory
+left_part.size(): 0 right_part.size():9
+/!\ warnning file Analyser.cpp line146 : out of memory
+left_part.size(): 0 right_part.size():2
+/!\ warnning file Analyser.cpp line146 : out of memory
+left_part.size(): 0 right_part.size():1
+/!\ warnning file Analyser.cpp line146 : out of memory
+left_part.size(): 0 right_part.size():2
+/!\ warnning file Analyser.cpp line146 : out of memory
+left_part.size(): 0 right_part.size():1
+/!\ warnning file Analyser.cpp line146 : out of memory
+left_part.size(): 0 right_part.size():1
+/!\ warnning file Analyser.cpp line146 : out of memory
+left_part.size(): 2 right_part.size():0
+/!\ warnning file Analyser.cpp line146 : out of memory
+left_part.size(): 0 right_part.size():1
+status: 3
+==23055== 
+==23055== HEAP SUMMARY:
+==23055==     in use at exit: 4,227,892 bytes in 11 blocks
+==23055==   total heap usage: 5,500,393 allocs, 5,500,382 frees, 433,283,441 bytes allocated
+==23055== 
+==23055== 16 bytes in 1 blocks are still reachable in loss record 1 of 11
+==23055==    at 0x402BE68: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==23055==    by 0x400542E: local_strdup (dl-load.c:162)
+==23055==    by 0x40082F6: _dl_map_object (dl-load.c:2501)
+==23055==    by 0x4012D6C: dl_open_worker (dl-open.c:225)
+==23055==    by 0x400ECCE: _dl_catch_error (dl-error.c:178)
+==23055==    by 0x410E929: dlopen_doit (dlopenold.c:55)
+==23055==    by 0x400ECCE: _dl_catch_error (dl-error.c:178)
+==23055== 
+==23055== 20 bytes in 1 blocks are still reachable in loss record 2 of 11
+==23055==    at 0x402A5E6: calloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==23055==    by 0x410E3AD: _dlerror_run (dlerror.c:142)
+==23055== 
+==23055== 48 bytes in 1 blocks are still reachable in loss record 3 of 11
+==23055==    at 0x402A5E6: calloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==23055==    by 0x401046C: _dl_check_map_versions (dl-version.c:300)
+==23055==    by 0x401337A: dl_open_worker (dl-open.c:268)
+==23055==    by 0x400ECCE: _dl_catch_error (dl-error.c:178)
+==23055==    by 0x410E929: dlopen_doit (dlopenold.c:55)
+==23055==    by 0x400ECCE: _dl_catch_error (dl-error.c:178)
+==23055== 
+==23055== 144 bytes in 1 blocks are still reachable in loss record 4 of 11
+==23055==    at 0x402BE68: malloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==23055==    by 0x402C007: realloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==23055==    by 0x400AF94: _dl_new_object (dl-object.c:180)
+==23055==    by 0x4006447: _dl_map_object_from_fd (dl-load.c:1051)
+==23055==    by 0x40083AF: _dl_map_object (dl-load.c:2568)
+==23055==    by 0x4012D6C: dl_open_worker (dl-open.c:225)
+==23055==    by 0x400ECCE: _dl_catch_error (dl-error.c:178)
+==23055==    by 0x410E929: dlopen_doit (dlopenold.c:55)
+==23055==    by 0x400ECCE: _dl_catch_error (dl-error.c:178)
+==23055== 
+==23055== 255 bytes in 1 blocks are still reachable in loss record 5 of 11
+==23055==    at 0x402B454: operator new[](unsigned int) (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==23055==    by 0x405B1DD: ntw::Serializer::Serializer(unsigned int) (in /home/maxime/Documents/git/cpp-Socket/libsocket.so)
+==23055==    by 0x405CA39: ntw::SocketSerialized::SocketSerialized(ntw::Socket::Dommaine, ntw::Socket::Type, int) (in /home/maxime/Documents/git/cpp-Socket/libsocket.so)
+==23055==    by 0x4055707: ntw::cli::Client::Client() (in /home/maxime/Documents/git/cpp-Socket/libsocket.so)
+==23055==    by 0x804CC8D: main (in /home/maxime/Documents/git/Harpe-client/harpe-client/harpe-client)
+==23055== 
+==23055== 255 bytes in 1 blocks are still reachable in loss record 6 of 11
+==23055==    at 0x402B454: operator new[](unsigned int) (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==23055==    by 0x405B1DD: ntw::Serializer::Serializer(unsigned int) (in /home/maxime/Documents/git/cpp-Socket/libsocket.so)
+==23055==    by 0x405CA39: ntw::SocketSerialized::SocketSerialized(ntw::Socket::Dommaine, ntw::Socket::Type, int) (in /home/maxime/Documents/git/cpp-Socket/libsocket.so)
+==23055==    by 0x405572D: ntw::cli::Client::Client() (in /home/maxime/Documents/git/cpp-Socket/libsocket.so)
+==23055==    by 0x804CC8D: main (in /home/maxime/Documents/git/Harpe-client/harpe-client/harpe-client)
+==23055== 
+==23055== 520 bytes in 1 blocks are still reachable in loss record 7 of 11
+==23055==    at 0x402A5E6: calloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==23055==    by 0x427C14A: __new_exitfn (cxa_atexit.c:101)
+==23055==    by 0x427C1AA: __internal_atexit (cxa_atexit.c:35)
+==23055==    by 0x804D47E: _GLOBAL__sub_I__ZrsRN3ntw10SerializerER2AA (in /home/maxime/Documents/git/Harpe-client/harpe-client/harpe-client)
+==23055==    by 0x804DC51: __libc_csu_init (in /home/maxime/Documents/git/Harpe-client/harpe-client/harpe-client)
+==23055==    by 0x4262469: (below main) (libc-start.c:185)
+==23055== 
+==23055== 632 bytes in 1 blocks are still reachable in loss record 8 of 11
+==23055==    at 0x402A5E6: calloc (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==23055==    by 0x400AE1F: _dl_new_object (dl-object.c:77)
+==23055==    by 0x4006447: _dl_map_object_from_fd (dl-load.c:1051)
+==23055==    by 0x40083AF: _dl_map_object (dl-load.c:2568)
+==23055==    by 0x4012D6C: dl_open_worker (dl-open.c:225)
+==23055==    by 0x400ECCE: _dl_catch_error (dl-error.c:178)
+==23055==    by 0x410E929: dlopen_doit (dlopenold.c:55)
+==23055==    by 0x400ECCE: _dl_catch_error (dl-error.c:178)
+==23055== 
+==23055== 768 bytes in 1 blocks are still reachable in loss record 9 of 11
+==23055==    at 0x402B9B4: operator new(unsigned int) (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==23055==    by 0x804C6F7: __gnu_cxx::new_allocator<harpe::AA>::allocate(unsigned int, void const*) (in /home/maxime/Documents/git/Harpe-client/harpe-client/harpe-client)
+==23055==    by 0x804C421: std::_Vector_base<harpe::AA, std::allocator<harpe::AA> >::_M_allocate(unsigned int) (in /home/maxime/Documents/git/Harpe-client/harpe-client/harpe-client)
+==23055==    by 0x804BD8C: void std::vector<harpe::AA, std::allocator<harpe::AA> >::_M_emplace_back_aux<int&, std::string&, float&>(int&&&, std::string&&&, float&&&) (in /home/maxime/Documents/git/Harpe-client/harpe-client/harpe-client)
+==23055==    by 0x804B97C: void std::vector<harpe::AA, std::allocator<harpe::AA> >::emplace_back<int&, std::string&, float&>(int&&&, std::string&&&, float&&&) (in /home/maxime/Documents/git/Harpe-client/harpe-client/harpe-client)
+==23055==    by 0x804B54F: void harpe::AATab::add<int, std::string, float>(int, std::string, float) (in /home/maxime/Documents/git/Harpe-client/harpe-client/harpe-client)
+==23055==    by 0x804AC69: process(ntw::cli::Client&) (in /home/maxime/Documents/git/Harpe-client/harpe-client/harpe-client)
+==23055==    by 0x804AB08: run(ntw::cli::Client&) (in /home/maxime/Documents/git/Harpe-client/harpe-client/harpe-client)
+==23055==    by 0x804CCFC: main (in /home/maxime/Documents/git/Harpe-client/harpe-client/harpe-client)
+==23055== 
+==23055== 30,930 bytes in 1 blocks are still reachable in loss record 10 of 11
+==23055==    at 0x402B454: operator new[](unsigned int) (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==23055==    by 0x405B910: ntw::Serializer::resize(unsigned int) (in /home/maxime/Documents/git/cpp-Socket/libsocket.so)
+==23055==    by 0x405BB5F: ntw::Serializer::push(unsigned long long const&) (in /home/maxime/Documents/git/cpp-Socket/libsocket.so)
+==23055==    by 0x405B36B: ntw::Serializer::operator<<(double) (in /home/maxime/Documents/git/cpp-Socket/libsocket.so)
+==23055==    by 0x40CA8B5: harpe::operator<<(ntw::Serializer&, harpe::SequenceToken const&) (in /home/maxime/Documents/git/libharpe-algo/libharpe-algo.so)
+==23055==    by 0x40CA28C: harpe::operator<<(ntw::Serializer&, harpe::Sequence const&) (in /home/maxime/Documents/git/libharpe-algo/libharpe-algo.so)
+==23055==    by 0x804B165: sendResults(ntw::SocketSerialized&, int, std::vector<harpe::Sequence, std::allocator<harpe::Sequence> >&, int) (in /home/maxime/Documents/git/Harpe-client/harpe-client/harpe-client)
+==23055==    by 0x804AFB0: process(ntw::cli::Client&) (in /home/maxime/Documents/git/Harpe-client/harpe-client/harpe-client)
+==23055==    by 0x804AB08: run(ntw::cli::Client&) (in /home/maxime/Documents/git/Harpe-client/harpe-client/harpe-client)
+==23055==    by 0x804CCFC: main (in /home/maxime/Documents/git/Harpe-client/harpe-client/harpe-client)
+==23055== 
+==23055== 4,194,304 bytes in 1 blocks are still reachable in loss record 11 of 11
+==23055==    at 0x402B9B4: operator new(unsigned int) (in /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so)
+==23055==    by 0x40C66B9: __gnu_cxx::new_allocator<harpe::SequenceToken*>::allocate(unsigned int, void const*) (in /home/maxime/Documents/git/libharpe-algo/libharpe-algo.so)
+==23055==    by 0x40C52A5: std::_Vector_base<harpe::SequenceToken*, std::allocator<harpe::SequenceToken*> >::_M_allocate(unsigned int) (in /home/maxime/Documents/git/libharpe-algo/libharpe-algo.so)
+==23055==    by 0x40C3F0C: void std::vector<harpe::SequenceToken*, std::allocator<harpe::SequenceToken*> >::_M_emplace_back_aux<harpe::SequenceToken*&>(harpe::SequenceToken*&&&) (in /home/maxime/Documents/git/libharpe-algo/libharpe-algo.so)
+==23055==    by 0x40C205A: void std::vector<harpe::SequenceToken*, std::allocator<harpe::SequenceToken*> >::emplace_back<harpe::SequenceToken*&>(harpe::SequenceToken*&&&) (in /home/maxime/Documents/git/libharpe-algo/libharpe-algo.so)
+==23055==    by 0x40BE512: harpe::Analyser::get_near(std::vector<mgf::Peak*, std::allocator<mgf::Peak*> > const&, int, harpe::Analyser::Sens) (in /home/maxime/Documents/git/libharpe-algo/libharpe-algo.so)
+==23055==    by 0x40BD980: harpe::Analyser::analyse(mgf::Spectrum const&, int&, int) (in /home/maxime/Documents/git/libharpe-algo/libharpe-algo.so)
+==23055==    by 0x804AF4E: process(ntw::cli::Client&) (in /home/maxime/Documents/git/Harpe-client/harpe-client/harpe-client)
+==23055==    by 0x804AB08: run(ntw::cli::Client&) (in /home/maxime/Documents/git/Harpe-client/harpe-client/harpe-client)
+==23055==    by 0x804CCFC: main (in /home/maxime/Documents/git/Harpe-client/harpe-client/harpe-client)
+==23055== 
+==23055== LEAK SUMMARY:
+==23055==    definitely lost: 0 bytes in 0 blocks
+==23055==    indirectly lost: 0 bytes in 0 blocks
+==23055==      possibly lost: 0 bytes in 0 blocks
+==23055==    still reachable: 4,227,892 bytes in 11 blocks
+==23055==         suppressed: 0 bytes in 0 blocks
+==23055== 
+==23055== For counts of detected and suppressed errors, rerun with: -v
+==23055== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
