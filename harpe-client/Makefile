@@ -1,9 +1,9 @@
 export CC = g++
 INCPATH = -I$(CURDIR)/include -I$(CURDIR)/src 
-LIBS = -lsocket -lmgf -lharpe-algo -lpthread -Wl,--no-as-needed -ldl -lmonitoring
+LIBS = -lsocket -lmgf -lharpe-algo -lpthread -Wl,--no-as-needed -ldl -lMonitoring
 #-lmysqlcppconn 
 export DEFINES = -DCOLORS -DNDEBUG
-export FLAGS = -og -std=c++0x $(INCPATH) $(LIBS) $(DEFINES)
+export FLAGS = -Wall -og -std=c++0x $(INCPATH) $(LIBS) $(DEFINES)
 export TOP = $(CURDIR)
 export OBJ_DIR = $(TOP)/obj
 

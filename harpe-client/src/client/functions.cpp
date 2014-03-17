@@ -15,7 +15,10 @@
 
 namespace ntw
 {
-    int dispatch(int id,SocketSerialized& request){}
+    int dispatch(int id,SocketSerialized& request)
+    {
+        return 0;
+    }
 }
 
 bool ini_context(char* sort_lib_path)
@@ -128,18 +131,21 @@ int process(ntw::cli::Client& client)
        
         sendResults(client.request_sock,pep.pk,res,status); 
 
+
         harpe::Analyser::free();
         delete spectrum;
         ++r;
         break;
     }
     harpe::Context::aa_tab.clear();
+    std::cout<<"blah"<<std::endl;
     
     return r;
 }
 
 int sendResults(ntw::SocketSerialized& sock,int pep_pk,std::vector<harpe::Sequence>& results,int status)
 {
+    int res = 0;
     //clear the data
     sock.clear();
     sock.setStatus(ntw::FuncWrapper::Status::ok);
@@ -159,9 +165,11 @@ int sendResults(ntw::SocketSerialized& sock,int pep_pk,std::vector<harpe::Sequen
 
     sock.send();
     //verify return
-    if (sock.receive() > 0)
+    res = sock.receive();
+    if (res > 0)
     {
         std::cerr<<"Recive Status: "<<sock.getStatus()<<std::endl;
     }
+    return res;
 }
 
