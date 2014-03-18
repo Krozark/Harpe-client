@@ -1,7 +1,6 @@
-#include <client/functions.hpp>
-
-#include <client/defines.hpp>
-#include <client/models.hpp>
+#include <harpe-client/functions.hpp>
+#include <harpe-client/defines.hpp>
+#include <harpe-client/models.hpp>
 
 #include <Socket/SocketSerialized.hpp>
 #include <Socket/client/Client.hpp>
@@ -65,7 +64,6 @@ void run(ntw::cli::Client& client)
             {
                 std::cout<<"[Recv] Start procecing datas "<<client.request_sock.size()<<std::endl;
                 process(client);                           
-                std::cout<<"after process"<<std::endl;
                 /// ask new task
             }break;
             case ERRORS::TIMEOUT :
