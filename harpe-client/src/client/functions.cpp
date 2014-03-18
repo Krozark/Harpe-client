@@ -50,11 +50,14 @@ void run(ntw::cli::Client& client)
     while (run)
     {
         client.call<void>(clientWaitForWork);
-        switch(client.request_sock.getStatus())
+        short int status = client.request_sock.getStatus();
+        switch(status)
         {
             case ERRORS::STOP :
             {
-                std::cout<<"[Recv] Stop"<<std::endl;
+                std::cerr<<" : The server is probably down."<<std::endl;
+                std::cout<<"[Recv] Stop"<<std::endl
+                    <<"The programme will now stop"<<std::endl;
                 client.request_sock.clear();
                 run = false;
             }break;
@@ -62,6 +65,7 @@ void run(ntw::cli::Client& client)
             {
                 std::cout<<"[Recv] Start procecing datas "<<client.request_sock.size()<<std::endl;
                 process(client);                           
+                std::cout<<"after process"<<std::endl;
                 /// ask new task
             }break;
             case ERRORS::TIMEOUT :
@@ -72,7 +76,7 @@ void run(ntw::cli::Client& client)
             }break;
             default :
             {
-                std::cout<<"[Recv] Server error code:"<<client.request_sock.getStatus()<<std::endl;
+                std::cout<<"[Recv] Server error code:"<<status<<std::endl;
                 client.request_sock.clear();
                 /// server error???
             }break;
@@ -127,8 +131,6 @@ int process(ntw::cli::Client& client)
         int status;
         std::vector<harpe::Sequence> res = harpe::Analyser::analyse(*spectrum,status,-1);
 
-        std::cout<<"status: "<<status<<std::endl;
-       
         sendResults(client.request_sock,pep.pk,res,status); 
 
 
@@ -138,7 +140,6 @@ int process(ntw::cli::Client& client)
         break;
     }
     harpe::Context::aa_tab.clear();
-    std::cout<<"blah"<<std::endl;
     
     return r;
 }
