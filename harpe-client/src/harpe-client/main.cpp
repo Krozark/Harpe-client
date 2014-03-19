@@ -1,3 +1,4 @@
+#include <harpe-client/defines.hpp>
 #include <harpe-client/functions.hpp>
 ///data base
 #include <Socket/Config.hpp>
@@ -9,6 +10,8 @@
 
 int main(int argc,char* argv[])
 {
+    std::cout<<"===\nHarpe client\nversion:"<<MAJOR_VERSION<<"."<<MINOR_VERSION<<"."<<PATCH_VERSION<<"\n===\n"<<std::endl;
+
     if(argc < SERVER_HOST+1)
     {
         std::cout<<"Usage are: "<<argv[0]<<" <server-host> [server-port]"<<std::endl;
