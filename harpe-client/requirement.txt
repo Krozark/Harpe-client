@@ -1,0 +1,14 @@
+# File generated with gen-requirement
+#Soft : harpe-client
+
+MyPackage==0.4.0
+
+libsocket==0.2
+libmgf==0.1
+libharpe-algo==0.8
+libpthread==0
+libMonitoring==0.1
+libdl==2
+libstdc++==6
+libgcc_s==1
+libc==6
