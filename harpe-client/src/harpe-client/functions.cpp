@@ -121,9 +121,12 @@ int process(ntw::cli::Client& client)
 
     int r=0;
 
+    harpe::Context::error=pep.analyse.error;
+
     mgf::Driver driver(stream);
     mgf::Spectrum* spectrum = nullptr;
-    while((spectrum = driver.next()) != nullptr)
+
+    while((spectrum = driver.next(pep.analyse.max_charge)) != nullptr)
     {
         //spectrum->__print__(std::cout);
         int status;

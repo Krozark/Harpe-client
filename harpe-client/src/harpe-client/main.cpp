@@ -48,7 +48,7 @@ int main(int argc,char* argv[])
         return 1;
     }
     
-    register_to_website(argv[WEBSITE_HOST],atoi(argv[WEBSITE_PORT]));
+    //register_to_website(argv[WEBSITE_HOST],atoi(argv[WEBSITE_PORT]));
 
     //// inti config
     ntw::Config::port_server = atoi(argv[WEBSITE_PORT]);
@@ -57,7 +57,7 @@ int main(int argc,char* argv[])
         return 0;
 
     ntw::cli::Client client;
-    client.connect(argv[WEBSITE_PORT],ntw::Config::port_server);
+    client.connect(argv[WEBSITE_HOST],ntw::Config::port_server);
 
 
     run(client);

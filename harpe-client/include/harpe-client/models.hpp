@@ -73,6 +73,8 @@ class AnalyseMgf
 {
     public:
         int pk; ///< hise pk in DB
+        int max_charge;
+        float error;
         std::list<AA> AAs; ///< the AA to use to analyse it
         std::list<AAModification> modifications;///< all the additional modifications
         

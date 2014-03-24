@@ -82,7 +82,9 @@ std::ostream& operator<<(std::ostream& stream,AAModification& self)
 
 ntw::Serializer& operator>>(ntw::Serializer& stream,AnalyseMgf& self)
 {
-    stream>>self.pk;
+    stream>>self.pk
+        >>self.max_charge
+        >>self.error;
     //AAs
     {
         unsigned int size;
@@ -109,6 +111,8 @@ ntw::Serializer& operator>>(ntw::Serializer& stream,AnalyseMgf& self)
 std::ostream& operator<<(std::ostream& stream, AnalyseMgf& self)
 {
     stream<<"{[AnalyseMgf]pk:"<<self.pk
+        <<", max_charge:"<<self.max_charge
+        <<", error:"<<self.error
         <<", AAs: [";
     for(AA& aa : self.AAs)
         stream<<", "<<aa;
