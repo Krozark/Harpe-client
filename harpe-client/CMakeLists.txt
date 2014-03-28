@@ -50,7 +50,8 @@ endif()
 find_library(MGF_LIB mgf)
 find_library(SOCKET_LIB socket)
 find_library(MONITORING_LIB monitoring)
-set(LIBS ${LIBS} ${MGF_LIB} ${SOCKET_LIB} ${MONITORING_LIB})
+find_library(HARPE_ALGO_LIB harpe-algo)
+set(LIBS ${LIBS} ${MGF_LIB} ${SOCKET_LIB} ${MONITORING_LIB} ${HARPE_ALGO_LIB})
 
 
 set(WARNING "-Wall")
