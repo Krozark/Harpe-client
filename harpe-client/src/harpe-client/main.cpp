@@ -47,14 +47,21 @@ int main(int argc,char* argv[])
         std::cout<<"Usage are: "<<argv[0]<<" <website-host> <website-port>"<<std::endl;
         return 1;
     }
-    
+
     //register_to_website(argv[WEBSITE_HOST],atoi(argv[WEBSITE_PORT]));
 
     //// inti config
     ntw::Config::port_server = atoi(argv[WEBSITE_PORT]);
 
+    #if __WIN32
+    if(not ini_context("./harpe-sort.dll"))
+        return 0;
+    #elif _unix
     if(not ini_context("./harpe-sort.so"))
         return 0;
+    #else
+    #error "System not detected"
+    #endif // __WIN32
 
     ntw::cli::Client client;
     client.connect(argv[WEBSITE_HOST],ntw::Config::port_server);
@@ -62,6 +69,6 @@ int main(int argc,char* argv[])
 
     run(client);
     clean_context();
-    
+
     return 0;
 }

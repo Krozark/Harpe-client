@@ -2,8 +2,6 @@
 *.slo
 *.lo
 *.o
-main
-*.exe
 
 # Compiled Dynamic libraries
 *.so
@@ -25,3 +23,9 @@ trunk/mgf/
 !file_test.mgf
 *.arp
 *.vim
+lib
+build
+Monitoring
+mgf
+harpe-algo
+Socket
