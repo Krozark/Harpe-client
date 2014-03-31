@@ -63,12 +63,14 @@ int main(int argc,char* argv[])
     #error "System not detected"
     #endif // __WIN32
 
+    ntw::Socket::init();
     ntw::cli::Client client;
     client.connect(argv[WEBSITE_HOST],ntw::Config::port_server);
 
 
     run(client);
     clean_context();
+    ntw::Socket::close();
 
     return 0;
 }
