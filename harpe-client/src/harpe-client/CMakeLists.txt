@@ -26,7 +26,5 @@ set(FILES_SRC
     ${ROOT_SRC}
 )
 
-find_library(LIBS ${LIBS})
-
 add_executable(${CMAKE_PROJECT_NAME} main.cpp ${FILES_HEADER} ${FILES_SRC})
 target_link_libraries(${CMAKE_PROJECT_NAME} ${LIBS})

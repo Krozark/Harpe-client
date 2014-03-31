@@ -56,7 +56,7 @@ int main(int argc,char* argv[])
     #if __WIN32
     if(not ini_context("./harpe-sort.dll"))
         return 0;
-    #elif _unix
+    #elif __unix || __unix__
     if(not ini_context("./harpe-sort.so"))
         return 0;
     #else
