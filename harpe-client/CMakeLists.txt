@@ -16,6 +16,22 @@ set(VERSION_MAJOR 0)
 set(VERSION_MINOR 4)
 set(VERSION_PATCH 2)
 
+############ QT ####################
+if(WIN32)
+	set(CMAKE_PREFIX_PATH "C:/Qt/Qt5.2.1/5.2.1/mingw48_32")
+endif()
+# Appeler automatique le moc quand nécessaire
+SET(CMAKE_AUTOMOC ON)
+# Les fichiers générés par le moc sont générés dans le dossier bin, dire à CMake de toujours 	
+# inclure les entêtes de ce dossier
+SET(CMAKE_INCLUDE_CURRENT_DIR ON)
+# Le module QtWidgets trouve ses propres dépendances
+FIND_PACKAGE(Qt5Widgets REQUIRED)
+FIND_PACKAGE(Qt5Network REQUIRED)
+FIND_PACKAGE(Qt5Script REQUIRED)
+##########################################
+
+
 
 # add the  header path
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
@@ -49,7 +65,7 @@ endif()
 #set(LIBS ${LIBS} ${MYSQL_LIB} ${SQLITE_LIB} ${ORM_LIB} ${MGF_LIB})
 find_library(MGF_LIB mgf)
 find_library(SOCKET_LIB socket)
-find_library(MONITORING_LIB monitoring)
+find_library(MONITORING_LIB Monitoring)
 find_library(HARPE_ALGO_LIB harpe-algo)
 set(LIBS ${LIBS} ${MGF_LIB} ${SOCKET_LIB} ${MONITORING_LIB} ${HARPE_ALGO_LIB})
 

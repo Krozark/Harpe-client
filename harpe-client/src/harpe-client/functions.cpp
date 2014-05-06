@@ -4,7 +4,6 @@
 
 #include <Socket/SocketSerialized.hpp>
 #include <Socket/client/Client.hpp>
-#include <Socket/Config.hpp>
 
 #include <mgf/Driver.hpp>
 #include <harpe-algo/Analyser.hpp>
@@ -29,11 +28,6 @@ bool ini_context(char* sort_lib_path)
     harpe::Context::finds_max_size=1000;
     harpe::Context::finds_max_size_tmp=1000*5;
     
-    ntw::Config::default_timeout = 5.f;
-    ntw::Config::broadcast = false;
-
-
-
     return true;
 }
 

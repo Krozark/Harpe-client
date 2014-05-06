@@ -28,3 +28,9 @@ set(FILES_SRC
 
 add_executable(${CMAKE_PROJECT_NAME} main.cpp ${FILES_HEADER} ${FILES_SRC})
 target_link_libraries(${CMAKE_PROJECT_NAME} ${LIBS})
+
+find_library(PATCHER_LIBS patcher)
+
+add_executable(${CMAKE_PROJECT_NAME}-patcher patcher.cpp)
+QT5_USE_MODULES(${CMAKE_PROJECT_NAME}-patcher Widgets Network Script)
+target_link_libraries(${CMAKE_PROJECT_NAME}-patcher ${LIBS} ${PATCHER_LIBS})

@@ -1,7 +1,6 @@
 #include <harpe-client/defines.hpp>
 #include <harpe-client/functions.hpp>
 ///data base
-#include <Socket/Config.hpp>
 #include <Socket/client/Client.hpp>
 
 
@@ -50,9 +49,6 @@ int main(int argc,char* argv[])
 
     //register_to_website(argv[WEBSITE_HOST],atoi(argv[WEBSITE_PORT]));
 
-    //// inti config
-    ntw::Config::port_server = atoi(argv[WEBSITE_PORT]);
-
     #if __WIN32
     if(not ini_context("./harpe-sort.dll"))
         return 0;
@@ -65,7 +61,7 @@ int main(int argc,char* argv[])
 
     ntw::Socket::init();
     ntw::cli::Client client;
-    client.connect(argv[WEBSITE_HOST],ntw::Config::port_server);
+    client.connect(argv[WEBSITE_HOST],atoi(argv[WEBSITE_PORT]));
 
 
     run(client);
