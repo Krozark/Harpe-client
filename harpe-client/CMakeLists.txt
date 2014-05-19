@@ -58,11 +58,7 @@ else()
     find_library(DL_LIB dl)
     set(LIBS ${PTHREAD_LIBS} ${DL_LIB})
 endif()
-#common libs
-#find_library(MYSQL_LIB mysqlcppconn)
-#find_library(SQLITE_LIB sqlite3)
-#find_library(ORM_LIB orm)
-#set(LIBS ${LIBS} ${MYSQL_LIB} ${SQLITE_LIB} ${ORM_LIB} ${MGF_LIB})
+
 find_library(MGF_LIB mgf)
 find_library(SOCKET_LIB socket)
 find_library(MONITORING_LIB Monitoring)

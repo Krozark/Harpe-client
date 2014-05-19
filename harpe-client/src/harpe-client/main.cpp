@@ -12,7 +12,7 @@ int register_to_website(char host[],int port)
     int status = 0;
 
     std::cout<<"[Loggin to website] "<<host<<":"<<port<<std::endl;
-    ntw::Socket website_sock(ntw::Socket::Dommaine::IP,ntw::Socket::Type::TCP);
+    ntw::Socket website_sock(ntw::Socket::Domain::IP,ntw::Socket::Type::TCP);
     website_sock.connect(host,port);
 
     std::string msg;
@@ -25,7 +25,7 @@ int register_to_website(char host[],int port)
     website_sock.send(msg.c_str(),msg.size());
 
     int recv;
-    float version = 0;
+    //float version = 0;
     std::string page;
     while((recv = website_sock.receive(buffer,1024))>0)
     {

@@ -144,7 +144,7 @@ int sendResults(ntw::SocketSerialized& sock,int pep_pk,std::vector<harpe::Sequen
     int res = 0;
     //clear the data
     sock.clear();
-    sock.setStatus(ntw::FuncWrapper::Status::ok);
+    sock.setStatus(ntw::Status::ok);
     //set the function id
     sock<<(int)sendPeptideResults
         <<pep_pk ///<the peptide pk

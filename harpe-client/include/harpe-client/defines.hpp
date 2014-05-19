@@ -1,7 +1,7 @@
 #ifndef DEFINES_HPP
 #define DEFINES_HPP
 
-#include <Socket/define.hpp>
+#include <Socket/Status.hpp>
 
 #define MAJOR_VERSION 0 //major version number (0..9999)
 #define MINOR_VERSION 4 //minor version number (0..99)
@@ -14,13 +14,13 @@
  * \brief store the erros codes
  */
 enum ERRORS {
-    STOP = NTW_STOP_CONNEXION,
-    OK = 0,
-    INPUT_NOT_VALID = 1,
-    EMPTY_INPUT = 2,
-    PK_ERROR = 3,
-    EMPTY_DATA_SEND = 4,
-    TIMEOUT = 5,
+    STOP = ntw::Status::stop,
+    OK = ntw::Status::ok,
+    INPUT_NOT_VALID = ntw::Status::user_define,
+    EMPTY_INPUT,
+    PK_ERROR,
+    EMPTY_DATA_SEND,
+    TIMEOUT,
 };
 
 #endif
