@@ -2,7 +2,10 @@
 #include <harpe-client/functions.hpp>
 ///data base
 #include <Socket/client/Client.hpp>
+#include <utils/string.hpp>
+#include <utils/json/Driver.hpp>
 
+#include <regex>
 
 #define WEBSITE_HOST 1
 #define WEBSITE_PORT 2
@@ -31,7 +34,20 @@ int register_to_website(char host[],int port)
     {
         page.append(buffer,recv);
     }
-    std::cout<<page<<std::endl<<std::flush;
+    auto v = utils::string::split(page,"\r\n\r\n"); 
+    if(v.size() ==2)
+    {
+        std::cout<<v[1]<<std::endl;
+
+        for(auto& c : v[1])
+            std::cout<<"<"<<c<<">";
+        std::cout<<std::endl;
+
+        utils::json::Value* json = utils::json::Driver::parse(v[1]);
+        if(json)
+            std::cout<<*json<<std::endl;
+        
+    }
 
     return status;
 }
@@ -47,7 +63,7 @@ int main(int argc,char* argv[])
         return 1;
     }
 
-    //register_to_website(argv[WEBSITE_HOST],atoi(argv[WEBSITE_PORT]));
+    register_to_website(argv[WEBSITE_HOST],atoi(argv[WEBSITE_PORT]));
 
     #if __WIN32
     if(not ini_context("./harpe-sort.dll"))

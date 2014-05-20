@@ -63,7 +63,9 @@ find_library(MGF_LIB mgf)
 find_library(SOCKET_LIB socket)
 find_library(MONITORING_LIB Monitoring)
 find_library(HARPE_ALGO_LIB harpe-algo)
-set(LIBS ${LIBS} ${MGF_LIB} ${SOCKET_LIB} ${MONITORING_LIB} ${HARPE_ALGO_LIB})
+find_library(UTILS_LIB utils)
+find_library(UTILS_JSON_LIB utils-json)
+set(LIBS ${LIBS} ${MGF_LIB} ${SOCKET_LIB} ${MONITORING_LIB} ${HARPE_ALGO_LIB} ${UTILS_LIB} ${UTILS_JSON_LIB})
 
 
 set(WARNING "-Wall")
