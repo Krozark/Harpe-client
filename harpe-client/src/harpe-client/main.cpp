@@ -16,11 +16,6 @@ struct server {
     int version;
     std::string ip;
     int port;
-
-    bool operator<(const server& other)
-    {
-        return version<other.version;
-    }
 };
 
 std::list<server> register_to_website(char host[],int port)
@@ -99,7 +94,9 @@ int main(int argc,char* argv[])
 
     if(servers.size()>0)
     {
-        servers.sort();
+        servers.sort([](const server& _1,const server& _2)->bool{
+                     return _1.version > _2.version;
+                     });
 
         #if __WIN32
         if(not ini_context("./harpe-sort.dll"))
@@ -114,16 +111,19 @@ int main(int argc,char* argv[])
         ntw::Socket::init();
         ntw::cli::Client client;
 
-        server& ser = servers.back();
-        utils::log::info("Connect","Use server",ser.name,"on ip",ser.ip,"and port",ser.port,"of version",ser.version);
-
-        if(client.connect(ser.ip,ser.port) == ntw::Status::ok)
+        for(server& ser : servers)
         {
-            utils::log::info("Connect","Connexion etablish");
-            run(client);
+            utils::log::info("Connect","Use server",ser.name,"on ip",ser.ip,"and port",ser.port,"of version",ser.version);
+
+            if(client.connect(ser.ip,ser.port) == ntw::Status::ok)
+            {
+                utils::log::info("Connect","Connexion etablish");
+                run(client);
+                break;
+            }
+            else
+                utils::log::error("Connect","Connexion failed");
         }
-        else
-            utils::log::error("Connect","Connexion failed");
 
         clean_context();
     }
