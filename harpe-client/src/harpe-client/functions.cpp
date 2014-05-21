@@ -9,6 +9,8 @@
 #include <harpe-algo/Analyser.hpp>
 #include <harpe-algo/Context.hpp>
 
+#include <utils/log.hpp>
+
 #include <sstream>
 
 namespace ntw
@@ -48,27 +50,25 @@ void run(ntw::cli::Client& client)
         {
             case ERRORS::STOP :
             {
-                std::cerr<<" : The server is probably down."<<std::endl;
-                std::cout<<"[Recv] Stop"<<std::endl
-                    <<"The programme will now stop"<<std::endl;
+                utils::log::error("Recv Stop","The server is probably down.","\nThe programme will now stop.");
                 client.request_sock.clear();
                 run = false;
             }break;
             case ERRORS::OK :
             {
-                std::cout<<"[Recv] Start procecing datas "<<client.request_sock.size()<<std::endl;
+                utils::log::info("Recv","Start procecing datas");
                 process(client);                           
                 /// ask new task
             }break;
             case ERRORS::TIMEOUT :
             {
-                std::cout<<"[Recv] Timeout"<<std::endl;
+                utils::log::info("Recv","Timeout");
                 client.request_sock.clear();
                 /// ask new task
             }break;
             default :
             {
-                std::cout<<"[Recv] Server error code:"<<status<<std::endl;
+                utils::log::error("Recv","Server error code:",status);
                 client.request_sock.clear();
                 /// server error???
             }break;
