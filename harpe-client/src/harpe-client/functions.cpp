@@ -124,12 +124,14 @@ int process(ntw::cli::Client& client)
     {
         //spectrum->__print__(std::cout);
         int status;
-        std::vector<harpe::Sequence> res = harpe::Analyser::analyse(*spectrum,status,-1);
+        std::vector<harpe::SequenceToken*> token_ptr;
+
+        std::vector<harpe::Sequence> res = harpe::Analyser::analyse(*spectrum,token_ptr,status,-1);
 
         sendResults(client.request_sock,pep.pk,res,status); 
 
 
-        harpe::Analyser::free();
+        harpe::Analyser::free(token_ptr);
         delete spectrum;
         ++r;
         break;
