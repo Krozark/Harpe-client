@@ -2,19 +2,25 @@
 #include <harpe-client/functions.hpp>
 ///data base
 #include <Socket/client/Client.hpp>
+#include <utils/log.hpp>
 #include <utils/string.hpp>
 #include <utils/json/Driver.hpp>
 
-#include <regex>
+#include <list>
 
 #define WEBSITE_HOST 1
 #define WEBSITE_PORT 2
 
-int register_to_website(char host[],int port)
-{
-    int status = 0;
+struct server {
+    std::string name;
+    int version;
+    std::string ip;
+    int port;
+};
 
-    std::cout<<"[Loggin to website] "<<host<<":"<<port<<std::endl;
+std::list<server> register_to_website(char host[],int port)
+{
+    utils::log::info("Loggin to website",host,":",port);
     ntw::Socket website_sock(ntw::Socket::Domain::IP,ntw::Socket::Type::TCP);
     website_sock.connect(host,port);
 
@@ -34,54 +40,98 @@ int register_to_website(char host[],int port)
     {
         page.append(buffer,recv);
     }
+
     auto v = utils::string::split(page,"\r\n\r\n"); 
+
+    std::list<server> res;
+
     if(v.size() ==2)
     {
-        std::cout<<v[1]<<std::endl;
+        utils::json::Value* json_v = utils::json::Driver::parse(v[1]);
+        if(json_v)
+        {
+            utils::json::Object& json = *json_v;
+            if(json["status"].as_string() == "ok")
+            {
+                utils::json::Array& data = json["data"];
+                for(auto& u : data)
+                {
+                    utils::json::Object& ser= u;
+                    server tmp;
+                    tmp.name = ser["name"].as_string();
+                    tmp.port = ser["port"];
+                    tmp.version = ser["version"];
+                    tmp.ip = ser["ip"].as_string();
 
-        for(auto& c : v[1])
-            std::cout<<"<"<<c<<">";
-        std::cout<<std::endl;
-
-        utils::json::Value* json = utils::json::Driver::parse(v[1]);
-        if(json)
-            std::cout<<*json<<std::endl;
+                    res.emplace_back(std::move(tmp));
+                }
+            }
+            else
+            {
+                utils::log::error("register to website","error code:",json["status"],", message:",json["message"]);
+            }
+        }
+        delete json_v;
         
     }
 
-    return status;
+    return res;
 }
 
 
 int main(int argc,char* argv[])
 {
-    std::cout<<"===\nHarpe client\nversion:"<<MAJOR_VERSION<<"."<<MINOR_VERSION<<"."<<PATCH_VERSION<<"\n===\n"<<std::endl;
+    std::cout<<utils::log::colors::green<<"===\nHarpe client\nversion:"<<MAJOR_VERSION<<"."<<MINOR_VERSION<<"."<<PATCH_VERSION<<"\n===\n"<<utils::log::colors::reset<<std::endl;
 
     if(argc < WEBSITE_PORT+1)
     {
-        std::cout<<"Usage are: "<<argv[0]<<" <website-host> <website-port>"<<std::endl;
+        utils::log::error("Usage",argv[0],"<website-host> <website-port>");
         return 1;
     }
 
-    register_to_website(argv[WEBSITE_HOST],atoi(argv[WEBSITE_PORT]));
 
-    #if __WIN32
-    if(not ini_context("./harpe-sort.dll"))
-        return 0;
-    #elif __unix || __unix__
-    if(not ini_context("./harpe-sort.so"))
-        return 0;
-    #else
-    #error "System not detected"
-    #endif // __WIN32
+    std::list<server> servers = register_to_website(argv[WEBSITE_HOST],atoi(argv[WEBSITE_PORT]));
 
-    ntw::Socket::init();
-    ntw::cli::Client client;
-    client.connect(argv[WEBSITE_HOST],atoi(argv[WEBSITE_PORT]));
+    if(servers.size()>0)
+    {
+        servers.sort([](const server& _1,const server& _2)->bool{
+                     return _1.version > _2.version;
+                     });
 
+        #if __WIN32
+        if(not ini_context("./harpe-sort.dll"))
+            return 0;
+        #elif __unix || __unix__
+        if(not ini_context("./harpe-sort.so"))
+            return 0;
+        #else
+        #error "System not detected"
+        #endif // __WIN32
 
-    run(client);
-    clean_context();
+        ntw::Socket::init();
+        ntw::cli::Client client;
+
+        for(server& ser : servers)
+        {
+            utils::log::info("Connect","Use server",ser.name,"on ip",ser.ip,"and port",ser.port,"of version",ser.version);
+
+            if(client.connect(ser.ip,ser.port) == ntw::Status::ok)
+            {
+                utils::log::info("Connect","Connexion etablish");
+                run(client);
+                break;
+            }
+            else
+                utils::log::error("Connect","Connexion failed");
+        }
+
+        clean_context();
+    }
+    else
+    {
+        utils::log::error("No server avalible");
+    }
+
     ntw::Socket::close();
 
     return 0;
