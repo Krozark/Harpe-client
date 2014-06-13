@@ -130,7 +130,6 @@ int process(ntw::cli::Client& client)
 
         sendResults(client.request_sock,pep.pk,res,status); 
 
-
         harpe::Analyser::free(token_ptr);
         delete spectrum;
         ++r;
