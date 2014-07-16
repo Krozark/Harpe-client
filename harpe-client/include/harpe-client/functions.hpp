@@ -25,6 +25,7 @@ namespace harpe
 
 #define clientWaitForWork 3 ///< the function id in the server
 #define sendPeptideResults 4 ///< the function id in the server
+#define sendClientInfo 5 ///< the function id in the server
 
 /**
  * \brief initialise the context
@@ -58,5 +59,11 @@ int process(ntw::cli::Client& client);
  */
 int sendResults(ntw::SocketSerialized& sock,int pep_pk,std::vector<harpe::Sequence>& results,int status);
 
+/**
+ * \brief send client info:
+ * - version (int)
+ * - ram in Mo (int)
+ */
+bool send_config_inf(ntw::cli::Client& client);
 
 #endif

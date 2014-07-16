@@ -6,10 +6,13 @@
 #include <Socket/client/Client.hpp>
 
 #include <mgf/Driver.hpp>
+
 #include <harpe-algo/Analyser.hpp>
 #include <harpe-algo/Context.hpp>
 
 #include <utils/log.hpp>
+
+#include <Monitoring/sys.hpp>
 
 #include <sstream>
 
@@ -41,9 +44,11 @@ void clean_context()
 
 void run(ntw::cli::Client& client)
 {
-    bool run = true;
+    bool run = send_config_inf(client);
+
     while (run)
     {
+
         client.call<void>(clientWaitForWork);
         short int status = client.request_sock.getStatus();
         switch(status)
@@ -170,3 +175,10 @@ int sendResults(ntw::SocketSerialized& sock,int pep_pk,std::vector<harpe::Sequen
     return res;
 }
 
+
+bool send_config_inf(ntw::cli::Client& client)
+{
+    int version = VERSION;
+    int ram = ((sys::memory::Physical::total()/1024)/1024);
+    bool res = client.call<bool>(sendClientInfo,version,ram);
+}
