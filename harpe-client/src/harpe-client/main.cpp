@@ -48,7 +48,6 @@ std::list<server> register_to_website(char host[],int port)
     if(v.size() ==2)
     {
         utils::json::Value* json_v = utils::json::Driver::parse(v[1]);
-        std::cout<<v[1]<<std::endl;
         if(json_v)
         {
             utils::json::Object& json = *json_v;
