@@ -99,14 +99,15 @@ int main(int argc,char* argv[])
                      });
 
         #if __WIN32
-        if(not ini_context("./harpe-sort.dll"))
-            return 0;
+        char lib[] = "./harpe-sort.dll";
         #elif __unix || __unix__
-        if(not ini_context("./harpe-sort.so"))
-            return 0;
+        char lib[] = "./harpe-sort.so";
         #else
         #error "System not detected"
         #endif // __WIN32
+
+        if(not ini_context(lib))
+            return 0;
 
         ntw::Socket::init();
         ntw::cli::Client client;

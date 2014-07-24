@@ -180,5 +180,5 @@ bool send_config_inf(ntw::cli::Client& client)
 {
     int version = VERSION;
     int ram = ((sys::memory::Physical::total()/1024)/1024);
-    bool res = client.call<bool>(sendClientInfo,version,ram);
+    return client.call<bool>(sendClientInfo,version,ram);
 }
