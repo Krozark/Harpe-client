@@ -11,6 +11,10 @@
 #define WEBSITE_HOST 1
 #define WEBSITE_PORT 2
 
+extern "C" {
+    int _get_output_format( void ){ return 0; } //to avoid linker error on windows
+}
+
 struct server {
     std::string name;
     int version;
@@ -41,7 +45,7 @@ std::list<server> register_to_website(char host[],int port)
         page.append(buffer,recv);
     }
 
-    auto v = utils::string::split(page,"\r\n\r\n"); 
+    auto v = utils::string::split(page,"\r\n\r\n");
 
     std::list<server> res;
 
@@ -72,7 +76,7 @@ std::list<server> register_to_website(char host[],int port)
             }
         }
         delete json_v;
-        
+
     }
 
     return res;
