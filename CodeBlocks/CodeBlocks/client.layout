@@ -1,19 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
-	<ActiveTarget name="all" />
-	<File name="..\..\..\Patcher-client\Patcher\src\patcher\Config.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<ActiveTarget name="client" />
+	<File name="..\..\..\Patcher-client\Patcher\include\patcher\Patcher.hpp" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="693" topLine="26" />
-		</Cursor>
-	</File>
-	<File name="..\..\..\libmgf\src\mgf\Lexer.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="8611" topLine="303" />
-		</Cursor>
-	</File>
-	<File name="..\..\..\cpp-utils\src\utils\sys.cpp" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="12120" topLine="429" />
+			<Cursor1 position="637" topLine="13" />
 		</Cursor>
 	</File>
 	<File name="..\..\..\cpp-Socket\include\Socket\Serializer.hpp" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -21,54 +11,9 @@
 			<Cursor1 position="0" topLine="39" />
 		</Cursor>
 	</File>
-	<File name="..\..\..\Patcher-client\Patcher\include\patcher\Patcher.hpp" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="..\..\..\cpp-Socket\src\Socket\Serializer.cpp" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="637" topLine="13" />
-		</Cursor>
-	</File>
-	<File name="..\..\..\cpp-Socket\src\Socket\SocketSerialized.cpp" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="6103" topLine="242" />
-		</Cursor>
-	</File>
-	<File name="..\..\..\Patcher-client\Patcher\src\patcher\Patcher.cpp" open="0" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="560" topLine="15" />
-		</Cursor>
-	</File>
-	<File name="..\..\..\Patcher-client\Patcher\include\patcher\Config.hpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="98" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="..\..\..\cpp-utils\include\utils\log.tpl" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="4215" topLine="141" />
-		</Cursor>
-	</File>
-	<File name="..\..\harpe-client\src\harpe-client\functions.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="295" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="..\..\..\cpp-Socket\src\Socket\SelectManager.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="441" topLine="12" />
-		</Cursor>
-	</File>
-	<File name="..\..\..\Patcher-client\Patcher\src\patcher\Patcher_moc.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="3836" topLine="98" />
-		</Cursor>
-	</File>
-	<File name="..\..\..\cpp-Socket\src\Socket\server\Server.cpp" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2973" topLine="94" />
-		</Cursor>
-	</File>
-	<File name="..\..\harpe-client\src\harpe-client\patcher.cpp" open="1" top="1" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="158" topLine="0" />
+			<Cursor1 position="600" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="..\..\harpe-client\src\harpe-client\main.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -76,14 +21,69 @@
 			<Cursor1 position="287" topLine="0" />
 		</Cursor>
 	</File>
+	<File name="..\..\..\Patcher-client\Patcher\include\patcher\Config.hpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="98" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\cpp-utils\src\utils\sys.cpp" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="12120" topLine="429" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\cpp-Socket\src\Socket\SocketSerialized.cpp" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="6103" topLine="242" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\libmgf\src\mgf\Lexer.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="8611" topLine="303" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\cpp-utils\include\utils\log.tpl" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="4215" topLine="141" />
+		</Cursor>
+	</File>
+	<File name="..\..\harpe-client\src\harpe-client\patcher.cpp" open="1" top="1" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="195" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\Patcher-client\Patcher\src\patcher\Patcher.cpp" open="0" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="560" topLine="15" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\cpp-Socket\src\Socket\server\Server.cpp" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2973" topLine="94" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\cpp-Socket\src\Socket\SelectManager.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="441" topLine="12" />
+		</Cursor>
+	</File>
+	<File name="..\..\harpe-client\src\harpe-client\functions.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="295" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\Patcher-client\Patcher\src\patcher\Patcher_moc.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3836" topLine="98" />
+		</Cursor>
+	</File>
 	<File name="..\..\..\cpp-utils\src\utils\plot.cpp" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="1024" topLine="20" />
 		</Cursor>
 	</File>
-	<File name="..\..\..\cpp-Socket\src\Socket\Serializer.cpp" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="..\..\..\Patcher-client\Patcher\src\patcher\Config.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="600" topLine="0" />
+			<Cursor1 position="693" topLine="26" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>
