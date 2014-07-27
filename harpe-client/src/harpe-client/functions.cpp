@@ -42,13 +42,11 @@ void clean_context()
 }
 
 
-void run(ntw::cli::Client& client)
+bool run(ntw::cli::Client& client)
 {
-    bool run = send_config_inf(client);
-
-    while (run)
+    bool res = true;
+    while (running and res)
     {
-
         client.call<void>(clientWaitForWork);
         short int status = client.request_sock.getStatus();
         switch(status)
@@ -57,28 +55,32 @@ void run(ntw::cli::Client& client)
             {
                 utils::log::error("Recv Stop","The server is probably down.","\nThe programme will now stop.");
                 client.request_sock.clear();
-                run = false;
+                res = false;
             }break;
             case ERRORS::OK :
             {
                 utils::log::info("Recv","Start procecing datas");
                 process(client);                           
+                res = true;
                 /// ask new task
             }break;
             case ERRORS::TIMEOUT :
             {
                 utils::log::info("Recv","Timeout");
                 client.request_sock.clear();
+                res = false;
                 /// ask new task
             }break;
             default :
             {
                 utils::log::error("Recv","Server error code:",status);
                 client.request_sock.clear();
+                res = false;
                 /// server error???
             }break;
         }
     }
+    return res;
 }
 
 int process(ntw::cli::Client& client)

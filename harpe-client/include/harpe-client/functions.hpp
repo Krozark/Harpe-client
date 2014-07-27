@@ -41,8 +41,9 @@ void clean_context();
 /**
  * \brief start the client
  * \param client the client to start
+ * \return true if all is Ok
  */
-void run(ntw::cli::Client& client);
+bool run(ntw::cli::Client& client);
 
 /**
  * \brief start the calculation of the analyse recive by the network
@@ -65,5 +66,7 @@ int sendResults(ntw::SocketSerialized& sock,int pep_pk,std::vector<harpe::Sequen
  * - ram in Mo (int)
  */
 bool send_config_inf(ntw::cli::Client& client);
+
+extern volatile bool running;
 
 #endif
