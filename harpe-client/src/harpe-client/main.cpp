@@ -14,7 +14,7 @@
 
 volatile bool running = false;
 
-#if _WIN23
+#if _WIN32
 extern "C" {
     int _get_output_format( void ){ return 0; } //to avoid linker error on windows
 }
@@ -55,7 +55,7 @@ void wait(int tentative)
     int second = tentative_to_sec(tentative);
     int time = second*1000; //min * secondes * millisecondes
     const int delta = 500;
-    
+
     int status = -1;
     char c[] = "|/-\\";
     utils::log::info("Wait",int(time/1000)," secondes.");

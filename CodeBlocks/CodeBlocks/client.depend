@@ -803,7 +803,7 @@
 1391290656 c:\qt\qt5.2.1\5.2.1\mingw48_32\include\qtcore\qeventloop.h
 	<QtCore/qobject.h>
 
-1406292321 source:c:\documents and settings\aaa\mes documents\github\patcher-client\patcher\src\patcher\patcher.cpp
+1406543242 source:c:\documents and settings\aaa\mes documents\github\patcher-client\patcher\src\patcher\patcher.cpp
 	<patcher/Patcher.hpp>
 	<patcher/Config.hpp>
 	<patcher/WebConnection.hpp>
@@ -816,7 +816,7 @@
 	<QMessageBox>
 	<iostream>
 
-1406449436 c:\documents and settings\aaa\mes documents\github\patcher-client\patcher\include\patcher\patcher.hpp
+1406543242 c:\documents and settings\aaa\mes documents\github\patcher-client\patcher\include\patcher\patcher.hpp
 	<QtWidgets>
 	<QString>
 	<QListWidget>
@@ -2729,7 +2729,7 @@
 1395846753 c:\documents and settings\aaa\mes documents\github\libmgf\include\mgf\flexlexer.hpp
 	<iostream>
 
-1406441541 c:\documents and settings\aaa\mes documents\github\libmgf\src\mgf\parser.hpp
+1406535052 c:\documents and settings\aaa\mes documents\github\libmgf\src\mgf\parser.hpp
 	<list>
 	<string>
 	<mgf/defines.hpp>
@@ -2746,14 +2746,14 @@
 	<string>
 	<sstream>
 
-1406441541 c:\documents and settings\aaa\mes documents\github\libmgf\src\mgf\stack.hh
+1406535052 c:\documents and settings\aaa\mes documents\github\libmgf\src\mgf\stack.hh
 	<vector>
 
 1395846753 source:c:\documents and settings\aaa\mes documents\github\libmgf\src\mgf\globalheader.cpp
 	<mgf/GlobalHeader.hpp>
 	<mgf/defines.hpp>
 
-1406441541 source:c:\documents and settings\aaa\mes documents\github\libmgf\src\mgf\lexer.cpp
+1406535052 source:c:\documents and settings\aaa\mes documents\github\libmgf\src\mgf\lexer.cpp
 	<inttypes.h>
 	<iostream>
 	<errno.h>
@@ -2775,7 +2775,7 @@
 	<utility>
 	<mgf/defines.hpp>
 
-1406441541 source:c:\documents and settings\aaa\mes documents\github\libmgf\src\mgf\parser.cpp
+1406535052 source:c:\documents and settings\aaa\mes documents\github\libmgf\src\mgf\parser.cpp
 	"Parser.hpp"
 	<utility>
 	<mgf/Driver.hpp>
@@ -2916,7 +2916,7 @@
 1406438220 c:\documents and settings\aaa\mes documents\github\cpp-utils\include\utils\json\flexlexer.hpp
 	<iostream>
 
-1406441541 c:\documents and settings\aaa\mes documents\github\cpp-utils\src\utils\json\parser.hpp
+1406534996 c:\documents and settings\aaa\mes documents\github\cpp-utils\src\utils\json\parser.hpp
 	<utility>
 	<utils/json/Value.hpp>
 	<utils/json/Array.hpp>
@@ -2932,7 +2932,7 @@
 	<unordered_map>
 	<iostream>
 
-1406441541 c:\documents and settings\aaa\mes documents\github\cpp-utils\src\utils\json\stack.hh
+1406534996 c:\documents and settings\aaa\mes documents\github\cpp-utils\src\utils\json\stack.hh
 	<vector>
 
 1406439242 c:\documents and settings\aaa\mes documents\github\cpp-utils\include\utils\log.hpp
@@ -2943,7 +2943,7 @@
 	<iostream>
 	<cstdlib>
 
-1406441541 source:c:\documents and settings\aaa\mes documents\github\cpp-utils\src\utils\json\lexer.cpp
+1406534996 source:c:\documents and settings\aaa\mes documents\github\cpp-utils\src\utils\json\lexer.cpp
 	<inttypes.h>
 	<iostream>
 	<errno.h>
@@ -2958,7 +2958,7 @@
 1406438220 source:c:\documents and settings\aaa\mes documents\github\cpp-utils\src\utils\json\object.cpp
 	<utils/json/Object.hpp>
 
-1406441541 source:c:\documents and settings\aaa\mes documents\github\cpp-utils\src\utils\json\parser.cpp
+1406534996 source:c:\documents and settings\aaa\mes documents\github\cpp-utils\src\utils\json\parser.cpp
 	"Parser.hpp"
 	<utils/json/Driver.hpp>
 	<string>
@@ -3042,7 +3042,7 @@
 
 1406438220 c:\documents and settings\aaa\mes documents\github\cpp-utils\include\utils\thread.tpl
 
-1406429697 source:c:\documents and settings\aaa\mes documents\github\harpe-client\harpe-client\src\harpe-client\functions.cpp
+1406535015 source:c:\documents and settings\aaa\mes documents\github\harpe-client\harpe-client\src\harpe-client\functions.cpp
 	<harpe-client/functions.hpp>
 	<harpe-client/defines.hpp>
 	<harpe-client/models.hpp>
@@ -3055,10 +3055,10 @@
 	<Monitoring/sys.hpp>
 	<sstream>
 
-1406429697 c:\documents and settings\aaa\mes documents\github\harpe-client\harpe-client\include\harpe-client\functions.hpp
+1406535015 c:\documents and settings\aaa\mes documents\github\harpe-client\harpe-client\include\harpe-client\functions.hpp
 	<vector>
 
-1406429697 c:\documents and settings\aaa\mes documents\github\harpe-client\harpe-client\include\harpe-client\defines.hpp
+1406543236 c:\documents and settings\aaa\mes documents\github\harpe-client\harpe-client\include\harpe-client\defines.hpp
 	<Socket/Status.hpp>
 
 1395846693 c:\documents and settings\aaa\mes documents\github\harpe-client\harpe-client\include\harpe-client\models.hpp
@@ -3066,22 +3066,25 @@
 	<iostream>
 	<list>
 
-1406452117 source:c:\documents and settings\aaa\mes documents\github\harpe-client\harpe-client\src\harpe-client\main.cpp
+1406544144 source:c:\documents and settings\aaa\mes documents\github\harpe-client\harpe-client\src\harpe-client\main.cpp
 	<harpe-client/defines.hpp>
 	<harpe-client/functions.hpp>
 	<Socket/client/Client.hpp>
 	<utils/log.hpp>
 	<utils/string.hpp>
 	<utils/json/Driver.hpp>
+	<csignal>
 	<list>
 
 1395846693 source:c:\documents and settings\aaa\mes documents\github\harpe-client\harpe-client\src\harpe-client\models.cpp
 	<harpe-client/models.hpp>
 	<Socket/Serializer.hpp>
 
-1406452727 source:c:\documents and settings\aaa\mes documents\github\harpe-client\harpe-client\src\harpe-client\patcher.cpp
+1406543236 source:c:\documents and settings\aaa\mes documents\github\harpe-client\harpe-client\src\harpe-client\patcher.cpp
 	<QApplication>
 	<patcher/Patcher.hpp>
+	<patcher/Config.hpp>
+	<utils/string.hpp>
 
 1391290649 c:\qt\qt5.2.1\5.2.1\mingw48_32\include\qtwidgets\qapplication
 	"qapplication.h"

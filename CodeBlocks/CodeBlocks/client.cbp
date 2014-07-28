@@ -7,8 +7,8 @@
 		<Option default_target="patcher" />
 		<Option compiler="gcc" />
 		<Build>
-			<Target title="client">
-				<Option output="bin/Release/client" prefix_auto="1" extension_auto="1" />
+			<Target title="harpe-client">
+				<Option output="bin/Release/harpe-client" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Release/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
@@ -20,8 +20,8 @@
 					<Add option="-lpdh" />
 				</Linker>
 			</Target>
-			<Target title="patcher">
-				<Option output="bin/Release/Patcher" prefix_auto="1" extension_auto="1" />
+			<Target title="harpe-client-patcher">
+				<Option output="bin/Release/harpe-client-patcher" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Release/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
@@ -37,7 +37,7 @@
 			</Target>
 		</Build>
 		<VirtualTargets>
-			<Add alias="all" targets="client;patcher;" />
+			<Add alias="all" targets="harpe-client;harpe-client-patcher;" />
 		</VirtualTargets>
 		<Compiler>
 			<Add option="-O3" />
@@ -66,328 +66,292 @@
 			<Add directory="C:/Qt/Qt5.2.1/5.2.1/mingw48_32/bin" />
 		</Linker>
 		<Unit filename="../../../Patcher-client/Patcher/include/patcher/Config.hpp">
-			<Option target="patcher" />
+			<Option target="harpe-client-patcher" />
 		</Unit>
 		<Unit filename="../../../Patcher-client/Patcher/include/patcher/Log.hpp">
-			<Option target="patcher" />
+			<Option target="harpe-client-patcher" />
 		</Unit>
 		<Unit filename="../../../Patcher-client/Patcher/include/patcher/Maj.hpp">
-			<Option target="patcher" />
+			<Option target="harpe-client-patcher" />
 		</Unit>
 		<Unit filename="../../../Patcher-client/Patcher/include/patcher/Patcher.hpp">
-			<Option target="patcher" />
+			<Option target="harpe-client-patcher" />
 		</Unit>
 		<Unit filename="../../../Patcher-client/Patcher/include/patcher/WebConnection.hpp">
-			<Option target="patcher" />
+			<Option target="harpe-client-patcher" />
 		</Unit>
 		<Unit filename="../../../Patcher-client/Patcher/include/patcher/defines.hpp">
-			<Option target="patcher" />
+			<Option target="harpe-client-patcher" />
 		</Unit>
 		<Unit filename="../../../Patcher-client/Patcher/src/patcher/Config.cpp">
-			<Option target="patcher" />
+			<Option target="harpe-client-patcher" />
 		</Unit>
 		<Unit filename="../../../Patcher-client/Patcher/src/patcher/Log.cpp">
-			<Option target="patcher" />
+			<Option target="harpe-client-patcher" />
 		</Unit>
 		<Unit filename="../../../Patcher-client/Patcher/src/patcher/Maj.cpp">
-			<Option target="patcher" />
+			<Option target="harpe-client-patcher" />
 		</Unit>
 		<Unit filename="../../../Patcher-client/Patcher/src/patcher/Patcher.cpp">
-			<Option target="patcher" />
+			<Option target="harpe-client-patcher" />
 		</Unit>
 		<Unit filename="../../../Patcher-client/Patcher/src/patcher/Patcher_moc.cpp">
-			<Option target="patcher" />
+			<Option target="harpe-client-patcher" />
 		</Unit>
 		<Unit filename="../../../Patcher-client/Patcher/src/patcher/WebConnection.cpp">
-			<Option target="patcher" />
+			<Option target="harpe-client-patcher" />
 		</Unit>
 		<Unit filename="../../../cpp-Socket/include/Socket/BalancingSelector.hpp">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../../cpp-Socket/include/Socket/FuncWrapper.hpp">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../../cpp-Socket/include/Socket/SelectManager.hpp">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../../cpp-Socket/include/Socket/Serializer.hpp">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../../cpp-Socket/include/Socket/Socket.hpp">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../../cpp-Socket/include/Socket/SocketSerialized.hpp">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../../cpp-Socket/include/Socket/Status.hpp">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../../cpp-Socket/include/Socket/client/Client.hpp">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../../cpp-Socket/include/Socket/define.hpp">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../../cpp-Socket/include/Socket/server/Client.hpp">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../../cpp-Socket/include/Socket/server/Server.hpp">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../../cpp-Socket/src/Socket/BalancingSelector.cpp">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../../cpp-Socket/src/Socket/FuncWrapper.cpp">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../../cpp-Socket/src/Socket/SelectManager.cpp">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../../cpp-Socket/src/Socket/Serializer.cpp">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../../cpp-Socket/src/Socket/Socket.cpp">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../../cpp-Socket/src/Socket/SocketSerialized.cpp">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../../cpp-Socket/src/Socket/Status.cpp">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../../cpp-Socket/src/Socket/client/Client.cpp">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../../cpp-Socket/src/Socket/server/Client.cpp">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../../cpp-Socket/src/Socket/server/Server.cpp">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../../cpp-utils/include/utils/functional.hpp">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../../cpp-utils/include/utils/functional.tpl">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../../cpp-utils/include/utils/json.hpp">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../../cpp-utils/include/utils/json/Array.hpp">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../../cpp-utils/include/utils/json/Driver.hpp">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../../cpp-utils/include/utils/json/FlexLexer.hpp">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../../cpp-utils/include/utils/json/Object.hpp">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../../cpp-utils/include/utils/json/Scanner.hpp">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../../cpp-utils/include/utils/json/Value.hpp">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
-		<Unit filename="../../../cpp-utils/include/utils/log.hpp">
-			<Option target="client" />
-		</Unit>
-		<Unit filename="../../../cpp-utils/include/utils/log.tpl">
-			<Option target="client" />
-		</Unit>
-		<Unit filename="../../../cpp-utils/include/utils/maths.hpp">
-			<Option target="client" />
-		</Unit>
-		<Unit filename="../../../cpp-utils/include/utils/maths.tpl">
-			<Option target="client" />
-		</Unit>
-		<Unit filename="../../../cpp-utils/include/utils/plot.hpp">
-			<Option target="client" />
-		</Unit>
-		<Unit filename="../../../cpp-utils/include/utils/plot.tpl">
-			<Option target="client" />
-		</Unit>
-		<Unit filename="../../../cpp-utils/include/utils/string.hpp">
-			<Option target="client" />
-		</Unit>
-		<Unit filename="../../../cpp-utils/include/utils/string.tpl">
-			<Option target="client" />
-		</Unit>
-		<Unit filename="../../../cpp-utils/include/utils/sys.hpp">
-			<Option target="client" />
-		</Unit>
-		<Unit filename="../../../cpp-utils/include/utils/sys.tpl">
-			<Option target="client" />
-		</Unit>
-		<Unit filename="../../../cpp-utils/include/utils/thread.hpp">
-			<Option target="client" />
-		</Unit>
-		<Unit filename="../../../cpp-utils/include/utils/thread.tpl">
-			<Option target="client" />
-		</Unit>
+		<Unit filename="../../../cpp-utils/include/utils/log.hpp" />
+		<Unit filename="../../../cpp-utils/include/utils/log.tpl" />
+		<Unit filename="../../../cpp-utils/include/utils/maths.hpp" />
+		<Unit filename="../../../cpp-utils/include/utils/maths.tpl" />
+		<Unit filename="../../../cpp-utils/include/utils/plot.hpp" />
+		<Unit filename="../../../cpp-utils/include/utils/plot.tpl" />
+		<Unit filename="../../../cpp-utils/include/utils/string.hpp" />
+		<Unit filename="../../../cpp-utils/include/utils/string.tpl" />
+		<Unit filename="../../../cpp-utils/include/utils/sys.hpp" />
+		<Unit filename="../../../cpp-utils/include/utils/sys.tpl" />
+		<Unit filename="../../../cpp-utils/include/utils/thread.hpp" />
+		<Unit filename="../../../cpp-utils/include/utils/thread.tpl" />
 		<Unit filename="../../../cpp-utils/include/utils/tr.hpp">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
-		<Unit filename="../../../cpp-utils/src/utils/functional.cpp">
-			<Option target="client" />
-		</Unit>
+		<Unit filename="../../../cpp-utils/src/utils/functional.cpp" />
 		<Unit filename="../../../cpp-utils/src/utils/json/Array.cpp">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../../cpp-utils/src/utils/json/Driver.cpp">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../../cpp-utils/src/utils/json/Lexer.cpp">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../../cpp-utils/src/utils/json/Object.cpp">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../../cpp-utils/src/utils/json/Parser.cpp">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../../cpp-utils/src/utils/json/Parser.hpp">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../../cpp-utils/src/utils/json/Scanner.cpp">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../../cpp-utils/src/utils/json/Value.cpp">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../../cpp-utils/src/utils/json/stack.hh">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
-		<Unit filename="../../../cpp-utils/src/utils/log.cpp">
-			<Option target="client" />
-		</Unit>
-		<Unit filename="../../../cpp-utils/src/utils/plot.cpp">
-			<Option target="client" />
-		</Unit>
-		<Unit filename="../../../cpp-utils/src/utils/string.cpp">
-			<Option target="client" />
-		</Unit>
-		<Unit filename="../../../cpp-utils/src/utils/sys.cpp">
-			<Option target="client" />
-		</Unit>
-		<Unit filename="../../../cpp-utils/src/utils/thread.cpp">
-			<Option target="client" />
-		</Unit>
+		<Unit filename="../../../cpp-utils/src/utils/log.cpp" />
+		<Unit filename="../../../cpp-utils/src/utils/plot.cpp" />
+		<Unit filename="../../../cpp-utils/src/utils/string.cpp" />
+		<Unit filename="../../../cpp-utils/src/utils/sys.cpp" />
+		<Unit filename="../../../cpp-utils/src/utils/thread.cpp" />
 		<Unit filename="../../../libharpe-algo/include/harpe-algo/AA.hpp">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../../libharpe-algo/include/harpe-algo/AATab.hpp">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../../libharpe-algo/include/harpe-algo/Analyser.hpp">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../../libharpe-algo/include/harpe-algo/Context.hpp">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../../libharpe-algo/include/harpe-algo/Sequence.hpp">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../../libharpe-algo/include/harpe-algo/SequenceToken.hpp">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../../libharpe-algo/include/harpe-algo/defines.hpp">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../../libharpe-algo/src/harpe-algo/AA.cpp">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../../libharpe-algo/src/harpe-algo/AATab.cpp">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../../libharpe-algo/src/harpe-algo/Analyser.cpp">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../../libharpe-algo/src/harpe-algo/Context.cpp">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../../libharpe-algo/src/harpe-algo/Sequence.cpp">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../../libharpe-algo/src/harpe-algo/SequenceToken.cpp">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../../libmgf/include/mgf/Analyse.hpp">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../../libmgf/include/mgf/Convert.hpp">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../../libmgf/include/mgf/Driver.hpp">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../../libmgf/include/mgf/FlexLexer.hpp">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../../libmgf/include/mgf/GlobalHeader.hpp">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../../libmgf/include/mgf/LocalHeader.hpp">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../../libmgf/include/mgf/Peak.hpp">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../../libmgf/include/mgf/Scanner.hpp">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../../libmgf/include/mgf/Spectrum.hpp">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../../libmgf/include/mgf/defines.hpp">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../../libmgf/include/mgf/stdfx.hpp">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../../libmgf/src/mgf/Analyse.cpp">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../../libmgf/src/mgf/Convert.cpp">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../../libmgf/src/mgf/Driver.cpp">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../../libmgf/src/mgf/GlobalHeader.cpp">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../../libmgf/src/mgf/Lexer.cpp">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../../libmgf/src/mgf/Lexer.lex">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../../libmgf/src/mgf/LocalHeader.cpp">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../../libmgf/src/mgf/Parser.cpp">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../../libmgf/src/mgf/Parser.hpp">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../../libmgf/src/mgf/Parser.yy">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../../libmgf/src/mgf/Peak.cpp">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../../libmgf/src/mgf/Scanner.cpp">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../../libmgf/src/mgf/Spectrum.cpp">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../../libmgf/src/mgf/stack.hh">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../../monitoring/include/Monitoring/Cpu.hpp" />
 		<Unit filename="../../../monitoring/include/Monitoring/Physical.hpp" />
@@ -398,25 +362,25 @@
 		<Unit filename="../../../monitoring/src/Monitoring/Virtual.cpp" />
 		<Unit filename="../../../monitoring/src/Monitoring/sys.cpp" />
 		<Unit filename="../../harpe-client/include/harpe-client/defines.hpp">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../harpe-client/include/harpe-client/functions.hpp">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../harpe-client/include/harpe-client/models.hpp">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../harpe-client/src/harpe-client/functions.cpp">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../harpe-client/src/harpe-client/main.cpp">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../harpe-client/src/harpe-client/models.cpp">
-			<Option target="client" />
+			<Option target="harpe-client" />
 		</Unit>
 		<Unit filename="../../harpe-client/src/harpe-client/patcher.cpp">
-			<Option target="patcher" />
+			<Option target="harpe-client-patcher" />
 		</Unit>
 		<Extensions>
 			<code_completion />
