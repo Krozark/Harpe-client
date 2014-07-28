@@ -84,7 +84,7 @@ std::list<server> register_to_website(char host[],int port)
         res.clear();
         if(website_sock.connect(host,port))
         {
-
+            utils::log::info("Connect","Connexion etablish");
             std::string msg;
             msg += "GET /get/ ";
             msg += "HTTP/1.1\r\nHOST: ";
