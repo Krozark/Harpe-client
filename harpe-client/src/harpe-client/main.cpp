@@ -14,9 +14,11 @@
 
 volatile bool running = false;
 
+#if _WIN23
 extern "C" {
     int _get_output_format( void ){ return 0; } //to avoid linker error on windows
 }
+#endif
 
 /**
  * \brief Signal hnadler to stop
