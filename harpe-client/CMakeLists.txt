@@ -14,7 +14,7 @@ project (harpe-client)
 # setup version numbers
 set(VERSION_MAJOR 0)
 set(VERSION_MINOR 4)
-set(VERSION_PATCH 6)
+set(VERSION_PATCH 7)
 
 ############ QT ####################
 if(WIN32)
