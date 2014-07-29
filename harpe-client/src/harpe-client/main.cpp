@@ -86,7 +86,7 @@ std::list<server> register_to_website(char host[],int port)
         res.clear();
         if(website_sock.connect(host,port))
         {
-            utils::log::info("website Connect","Connexion etablish");
+            utils::log::ok("website Connect","Connexion etablish");
             std::string msg;
             msg += "GET /get/ ";
             msg += "HTTP/1.1\r\nHOST: ";
@@ -200,7 +200,7 @@ int main(int argc,char* argv[])
 
                     if(client.connect(ser.ip,ser.port) == ntw::Status::ok)
                     {
-                        utils::log::info("Server Connect","Connexion etablish");
+                        utils::log::ok("Server Connect","Connexion etablish");
                         if(send_config_inf(client))
                         {
                             connected = true;

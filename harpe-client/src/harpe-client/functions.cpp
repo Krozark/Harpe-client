@@ -112,7 +112,7 @@ int process(ntw::cli::Client& client)
     if(harpe::Context::aa_tab.size()<=0)
     {
         //\todo ERROR, invalid input( no AAs)
-        std::cerr<<"ERROR on input (no AAs)"<<std::endl;
+        utils::log::error("Input","error on input (no AAs)");
         return -1;
     }
     harpe::Context::aa_tab.sort();
@@ -172,7 +172,7 @@ int sendResults(ntw::SocketSerialized& sock,int pep_pk,std::vector<harpe::Sequen
     res = sock.receive();
     if (res > 0)
     {
-        std::cerr<<"Recive Status: "<<sock.getStatus()<<std::endl;
+        utils::log::error("Recive","Status:",sock.getStatus());
     }
     return res;
 }
