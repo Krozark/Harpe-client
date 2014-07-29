@@ -15,8 +15,8 @@ extern "C" {
 
 int main(int argc,char* argv[])
 {
-    QCoreApplication::addLibraryPath(".");
     QApplication App(argc, argv);
+    QCoreApplication::addLibraryPath(QCoreApplication::applicationDirPath());
 
      #if _WIN32
     QSettings settings("HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", QSettings::NativeFormat);
