@@ -1,10 +1,11 @@
 # depslib dependency file v1.0
-1406292718 source:c:\documents and settings\aaa\mes documents\github\patcher-client\patcher\src\patcher\config.cpp
+1406637412 source:c:\documents and settings\aaa\mes documents\github\patcher-client\patcher\src\patcher\config.cpp
 	<patcher/Config.hpp>
 	<QUrl>
 	<QInputDialog>
 	<QSettings>
 	<QDir>
+	<QCoreApplication>
 	<fstream>
 	<sstream>
 	<Monitoring/sys.hpp>
@@ -803,7 +804,7 @@
 1391290656 c:\qt\qt5.2.1\5.2.1\mingw48_32\include\qtcore\qeventloop.h
 	<QtCore/qobject.h>
 
-1406543242 source:c:\documents and settings\aaa\mes documents\github\patcher-client\patcher\src\patcher\patcher.cpp
+1406635103 source:c:\documents and settings\aaa\mes documents\github\patcher-client\patcher\src\patcher\patcher.cpp
 	<patcher/Patcher.hpp>
 	<patcher/Config.hpp>
 	<patcher/WebConnection.hpp>
@@ -3080,7 +3081,7 @@
 	<harpe-client/models.hpp>
 	<Socket/Serializer.hpp>
 
-1406623966 source:c:\documents and settings\aaa\mes documents\github\harpe-client\harpe-client\src\harpe-client\patcher.cpp
+1406635931 source:c:\documents and settings\aaa\mes documents\github\harpe-client\harpe-client\src\harpe-client\patcher.cpp
 	<QApplication>
 	<patcher/Patcher.hpp>
 	<patcher/Config.hpp>
