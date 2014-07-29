@@ -178,8 +178,6 @@ int sendResults(ntw::SocketSerialized& sock,int pep_pk,std::vector<harpe::Sequen
 }
 
 
-double get_max_mem(double coef);
-
 
 bool send_config_inf(ntw::cli::Client& client)
 {
