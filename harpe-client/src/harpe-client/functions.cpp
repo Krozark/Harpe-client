@@ -172,7 +172,7 @@ int sendResults(ntw::SocketSerialized& sock,int pep_pk,std::vector<harpe::Sequen
     res = sock.receive();
     if (res > 0)
     {
-        utils::log::error("Recive","Status:",sock.getStatus());
+        utils::log::info("Recive","Status:",sock.getStatus());
     }
     return res;
 }
