@@ -68,7 +68,7 @@ bool run(ntw::cli::Client& client)
             {
                 utils::log::info("Recv","Timeout");
                 client.request_sock.clear();
-                res = false;
+                res = true;
                 /// ask new task
             }break;
             default :
