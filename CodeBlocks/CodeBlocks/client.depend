@@ -3080,11 +3080,13 @@
 	<harpe-client/models.hpp>
 	<Socket/Serializer.hpp>
 
-1406543236 source:c:\documents and settings\aaa\mes documents\github\harpe-client\harpe-client\src\harpe-client\patcher.cpp
+1406623966 source:c:\documents and settings\aaa\mes documents\github\harpe-client\harpe-client\src\harpe-client\patcher.cpp
 	<QApplication>
 	<patcher/Patcher.hpp>
 	<patcher/Config.hpp>
 	<utils/string.hpp>
+	<QCoreApplication>
+	<QSettings>
 
 1391290649 c:\qt\qt5.2.1\5.2.1\mingw48_32\include\qtwidgets\qapplication
 	"qapplication.h"
@@ -3302,8 +3304,11 @@
 	<string>
 	<sstream>
 
-1406450809 source:c:\documents and settings\aaa\mes documents\github\patcher-client\patcher\src\patcher\patcher_moc.cpp
-	<Patcher/Patcher.hpp>
+1406621249 source:c:\documents and settings\aaa\mes documents\github\patcher-client\patcher\src\patcher\patcher_moc.cpp
+	"../../include/patcher/Patcher.hpp"
 	<QtCore/qbytearray.h>
 	<QtCore/qmetatype.h>
+
+1391290649 c:\qt\qt5.2.1\5.2.1\mingw48_32\include\qtcore\qcoreapplication
+	"qcoreapplication.h"
 
