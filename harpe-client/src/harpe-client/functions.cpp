@@ -178,9 +178,12 @@ int sendResults(ntw::SocketSerialized& sock,int pep_pk,std::vector<harpe::Sequen
 }
 
 
+double get_max_mem(double coef);
+
+
 bool send_config_inf(ntw::cli::Client& client)
 {
     int version = VERSION;
-    int ram = ((sys::memory::Physical::total()/1024)/1024);
+    int ram = ((get_max_mem(1)/1024)/1024);
     return client.call<bool>(sendClientInfo,version,ram);
 }
