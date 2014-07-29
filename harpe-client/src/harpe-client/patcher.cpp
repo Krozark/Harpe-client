@@ -15,6 +15,7 @@ extern "C" {
 
 int main(int argc,char* argv[])
 {
+    QCoreApplication::addLibraryPath(".");
     QApplication App(argc, argv);
 
      #if _WIN32

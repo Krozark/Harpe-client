@@ -162,6 +162,7 @@ int main(int argc,char* argv[])
 
     running = true;
     std::signal(SIGINT, stop_handler);
+    ntw::Socket::init();
 
     int tentative = 0;
 
